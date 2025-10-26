@@ -1,0 +1,880 @@
+{
+  "usuarios": [
+    {
+      "nombre": "Daniela",
+      "apellido": "Vargas",
+      "email": "daniela.vargas@gmail.com",
+      "contraseña": "$2a$10$zKQx8YhF9vRmLwN3pTq5Eu5xYwP4eKmZxGvHjNmDkLpQwErTyUzMa",
+      "fecha_nacimiento": "1996-08-22",
+      "genero": "FEMENINO",
+      "telefono": "3209876543",
+      "direccion": "Carrera 8 #25-40",
+      "ciudad": "Cali",
+      "pais": "Colombia",
+      "tipo_usuario": "PACIENTE",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Felipe",
+      "apellido": "Moreno",
+      "email": "felipe.moreno@hotmail.com",
+      "contraseña": "$2a$10$zKQx8YhF9vRmLwN3pTq5Eu5xYwP4eKmZxGvHjNmDkLpQwErTyUzMa",
+      "fecha_nacimiento": "1991-12-05",
+      "genero": "MASCULINO",
+      "telefono": "3218765432",
+      "direccion": "Calle 50 #18-25",
+      "ciudad": "Medellín",
+      "pais": "Colombia",
+      "tipo_usuario": "PACIENTE",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Valentina",
+      "apellido": "Ortiz",
+      "email": "valentina.ortiz@outlook.com",
+      "contraseña": "$2a$10$zKQx8YhF9vRmLwN3pTq5Eu5xYwP4eKmZxGvHjNmDkLpQwErTyUzMa",
+      "fecha_nacimiento": "1999-04-18",
+      "genero": "FEMENINO",
+      "telefono": "3227654321",
+      "direccion": "Avenida 19 #32-60",
+      "ciudad": "Bogotá",
+      "pais": "Colombia",
+      "tipo_usuario": "PACIENTE",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Andrés",
+      "apellido": "Castro",
+      "email": "andres.castro@yahoo.com",
+      "contraseña": "$2a$10$zKQx8YhF9vRmLwN3pTq5Eu5xYwP4eKmZxGvHjNmDkLpQwErTyUzMa",
+      "fecha_nacimiento": "1987-09-14",
+      "genero": "MASCULINO",
+      "telefono": "3236543210",
+      "direccion": "Transversal 30 #45-12",
+      "ciudad": "Barranquilla",
+      "pais": "Colombia",
+      "tipo_usuario": "PACIENTE",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Isabella",
+      "apellido": "Restrepo",
+      "email": "isabella.restrepo@gmail.com",
+      "contraseña": "$2a$10$zKQx8YhF9vRmLwN3pTq5Eu5xYwP4eKmZxGvHjNmDkLpQwErTyUzMa",
+      "fecha_nacimiento": "1994-02-28",
+      "genero": "FEMENINO",
+      "telefono": "3245432109",
+      "direccion": "Diagonal 40 #22-35",
+      "ciudad": "Cartagena",
+      "pais": "Colombia",
+      "tipo_usuario": "PACIENTE",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Dra. Camila",
+      "apellido": "Jiménez",
+      "email": "camila.jimenez@mediapp.com",
+      "contraseña": "$2a$10$hNpWx7Lm9QrY6vKp2TqNe.sZwX8RjYmKxHvJnNoDmPqSxFsTzVaN.",
+      "fecha_nacimiento": "1983-07-10",
+      "genero": "FEMENINO",
+      "telefono": "3254321098",
+      "direccion": "Calle 85 #12-20",
+      "ciudad": "Bogotá",
+      "pais": "Colombia",
+      "tipo_usuario": "MEDICO",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Dr. Santiago",
+      "apellido": "Mendoza",
+      "email": "santiago.mendoza@mediapp.com",
+      "contraseña": "$2a$10$hNpWx7Lm9QrY6vKp2TqNe.sZwX8RjYmKxHvJnNoDmPqSxFsTzVaN.",
+      "fecha_nacimiento": "1979-11-25",
+      "genero": "MASCULINO",
+      "telefono": "3263210987",
+      "direccion": "Carrera 70 #28-40",
+      "ciudad": "Medellín",
+      "pais": "Colombia",
+      "tipo_usuario": "MEDICO",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Dra. Natalia",
+      "apellido": "Vega",
+      "email": "natalia.vega@mediapp.com",
+      "contraseña": "$2a$10$hNpWx7Lm9QrY6vKp2TqNe.sZwX8RjYmKxHvJnNoDmPqSxFsTzVaN.",
+      "fecha_nacimiento": "1981-05-08",
+      "genero": "FEMENINO",
+      "telefono": "3272109876",
+      "direccion": "Avenida 5 #33-15",
+      "ciudad": "Cali",
+      "pais": "Colombia",
+      "tipo_usuario": "MEDICO",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Dr. Eduardo",
+      "apellido": "Parra",
+      "email": "eduardo.parra@mediapp.com",
+      "contraseña": "$2a$10$hNpWx7Lm9QrY6vKp2TqNe.sZwX8RjYmKxHvJnNoDmPqSxFsTzVaN.",
+      "fecha_nacimiento": "1976-03-22",
+      "genero": "MASCULINO",
+      "telefono": "3281098765",
+      "direccion": "Calle 100 #50-08",
+      "ciudad": "Bucaramanga",
+      "pais": "Colombia",
+      "tipo_usuario": "MEDICO",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Dra. Adriana",
+      "apellido": "Londoño",
+      "email": "adriana.londono@mediapp.com",
+      "contraseña": "$2a$10$hNpWx7Lm9QrY6vKp2TqNe.sZwX8RjYmKxHvJnNoDmPqSxFsTzVaN.",
+      "fecha_nacimiento": "1984-10-12",
+      "genero": "FEMENINO",
+      "telefono": "3290987654",
+      "direccion": "Carrera 23 #45-70",
+      "ciudad": "Santa Marta",
+      "pais": "Colombia",
+      "tipo_usuario": "MEDICO",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Alejandro",
+      "apellido": "Director",
+      "email": "alejandro.director@mediapp.com",
+      "contraseña": "$2a$10$mOpXy8Mn0TsZ7wLq3UsOf.tAxY9SjZnLyIwKoOpEnRrTyGtUaWbO2",
+      "fecha_nacimiento": "1988-06-15",
+      "genero": "MASCULINO",
+      "telefono": "3309876543",
+      "direccion": "Sede Administrativa",
+      "ciudad": "Bogotá",
+      "pais": "Colombia",
+      "tipo_usuario": "ADMIN",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Mónica",
+      "apellido": "Jefe",
+      "email": "monica.jefe@mediapp.com",
+      "contraseña": "$2a$10$mOpXy8Mn0TsZ7wLq3UsOf.tAxY9SjZnLyIwKoOpEnRrTyGtUaWbO2",
+      "fecha_nacimiento": "1991-09-20",
+      "genero": "FEMENINO",
+      "telefono": "3318765432",
+      "direccion": "Sede Administrativa",
+      "ciudad": "Bogotá",
+      "pais": "Colombia",
+      "tipo_usuario": "ADMIN",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Gabriel",
+      "apellido": "Líder",
+      "email": "gabriel.lider@mediapp.com",
+      "contraseña": "$2a$10$mOpXy8Mn0TsZ7wLq3UsOf.tAxY9SjZnLyIwKoOpEnRrTyGtUaWbO2",
+      "fecha_nacimiento": "1986-12-03",
+      "genero": "MASCULINO",
+      "telefono": "3327654321",
+      "direccion": "Sede Administrativa",
+      "ciudad": "Bogotá",
+      "pais": "Colombia",
+      "tipo_usuario": "ADMIN",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Paola",
+      "apellido": "Encargada",
+      "email": "paola.encargada@mediapp.com",
+      "contraseña": "$2a$10$mOpXy8Mn0TsZ7wLq3UsOf.tAxY9SjZnLyIwKoOpEnRrTyGtUaWbO2",
+      "fecha_nacimiento": "1993-07-18",
+      "genero": "FEMENINO",
+      "telefono": "3336543210",
+      "direccion": "Sede Administrativa",
+      "ciudad": "Bogotá",
+      "pais": "Colombia",
+      "tipo_usuario": "ADMIN",
+      "estado": "ACTIVO"
+    },
+    {
+      "nombre": "Julián",
+      "apellido": "Responsable",
+      "email": "julian.responsable@mediapp.com",
+      "contraseña": "$2a$10$mOpXy8Mn0TsZ7wLq3UsOf.tAxY9SjZnLyIwKoOpEnRrTyGtUaWbO2",
+      "fecha_nacimiento": "1990-04-25",
+      "genero": "MASCULINO",
+      "telefono": "3345432109",
+      "direccion": "Sede Administrativa",
+      "ciudad": "Bogotá",
+      "pais": "Colombia",
+      "tipo_usuario": "ADMIN",
+      "estado": "ACTIVO"
+    }
+  ],
+
+  "especialidades": [
+    {
+      "nombre_especialidad": "Neurología",
+      "descripcion": "Diagnóstico y tratamiento de trastornos del sistema nervioso central y periférico",
+      "estado": "ACTIVA"
+    },
+    {
+      "nombre_especialidad": "Endocrinología",
+      "descripcion": "Especialidad enfocada en el diagnóstico y tratamiento de trastornos hormonales",
+      "estado": "ACTIVA"
+    },
+    {
+      "nombre_especialidad": "Oncología",
+      "descripcion": "Tratamiento y seguimiento de pacientes con cáncer",
+      "estado": "ACTIVA"
+    },
+    {
+      "nombre_especialidad": "Urología",
+      "descripcion": "Diagnóstico y tratamiento de enfermedades del sistema urinario",
+      "estado": "ACTIVA"
+    },
+    {
+      "nombre_especialidad": "Gastroenterología",
+      "descripcion": "Especialidad dedicada a enfermedades del aparato digestivo",
+      "estado": "ACTIVA"
+    },
+    {
+      "nombre_especialidad": "Neumología",
+      "descripcion": "Diagnóstico y tratamiento de enfermedades respiratorias y pulmonares",
+      "estado": "ACTIVA"
+    },
+    {
+      "nombre_especialidad": "Reumatología",
+      "descripcion": "Tratamiento de enfermedades autoinmunes y del sistema músculo-esquelético",
+      "estado": "ACTIVA"
+    },
+    {
+      "nombre_especialidad": "Otorrinolaringología",
+      "descripcion": "Especialidad enfocada en oído, nariz y garganta",
+      "estado": "ACTIVA"
+    }
+  ],
+
+  "pacientes": [
+    {
+      "id_usuario": 1,
+      "numero_identificacion": "1095123789",
+      "tipo_sangre": "A-",
+      "alergias": "Látex, Polen de gramíneas",
+      "enfermedades_cronicas": "Rinitis alérgica",
+      "medicamentos_actuales": "Loratadina 10mg",
+      "contacto_emergencia": "Carlos Vargas (Padre)",
+      "telefono_emergencia": "3006789012"
+    },
+    {
+      "id_usuario": 2,
+      "numero_identificacion": "1095234890",
+      "tipo_sangre": "B+",
+      "alergias": "Ninguna",
+      "enfermedades_cronicas": "Colesterol alto",
+      "medicamentos_actuales": "Atorvastatina 20mg",
+      "contacto_emergencia": "Lucía Moreno (Esposa)",
+      "telefono_emergencia": "3007890123"
+    },
+    {
+      "id_usuario": 3,
+      "numero_identificacion": "1095345901",
+      "tipo_sangre": "O+",
+      "alergias": "Sulfamidas",
+      "enfermedades_cronicas": "Ninguna",
+      "medicamentos_actuales": "Ninguno",
+      "contacto_emergencia": "Diego Ortiz (Hermano)",
+      "telefono_emergencia": "3008901234"
+    },
+    {
+      "id_usuario": 4,
+      "numero_identificacion": "1095456012",
+      "tipo_sangre": "AB-",
+      "alergias": "Frutos secos, Huevo",
+      "enfermedades_cronicas": "Hipotiroidismo",
+      "medicamentos_actuales": "Levotiroxina 100mcg",
+      "contacto_emergencia": "Ana Castro (Madre)",
+      "telefono_emergencia": "3009012345"
+    },
+    {
+      "id_usuario": 5,
+      "numero_identificacion": "1095567123",
+      "tipo_sangre": "A+",
+      "alergias": "Aspirina",
+      "enfermedades_cronicas": "Migraña crónica",
+      "medicamentos_actuales": "Sumatriptán 50mg según necesidad",
+      "contacto_emergencia": "Javier Restrepo (Esposo)",
+      "telefono_emergencia": "3000123456"
+    }
+  ],
+
+  "medicos": [
+    {
+      "id_usuario": 6,
+      "numero_licencia": "MED-2017-567",
+      "id_especialidad": 1,
+      "hospital_afiliado": "Hospital Universitario San Ignacio",
+      "experiencia_anos": 6,
+      "resumen_bio": "Neuróloga especializada en cefaleas y trastornos del movimiento",
+      "calificacion_promedio": 4.9,
+      "estado_verificacion": "VERIFICADO",
+      "fecha_verificacion": "2024-03-10"
+    },
+    {
+      "id_usuario": 7,
+      "numero_licencia": "MED-2011-890",
+      "id_especialidad": 2,
+      "hospital_afiliado": "Clínica Medellín",
+      "experiencia_anos": 12,
+      "resumen_bio": "Endocrinólogo experto en diabetes y trastornos tiroideos",
+      "calificacion_promedio": 4.7,
+      "estado_verificacion": "VERIFICADO",
+      "fecha_verificacion": "2024-03-15"
+    },
+    {
+      "id_usuario": 8,
+      "numero_licencia": "MED-2014-234",
+      "id_especialidad": 5,
+      "hospital_afiliado": "Centro Médico Imbanaco",
+      "experiencia_anos": 9,
+      "resumen_bio": "Gastroenteróloga especializada en enfermedades inflamatorias intestinales",
+      "calificacion_promedio": 4.8,
+      "estado_verificacion": "VERIFICADO",
+      "fecha_verificacion": "2024-03-20"
+    },
+    {
+      "id_usuario": 9,
+      "numero_licencia": "MED-2007-456",
+      "id_especialidad": 6,
+      "hospital_afiliado": "Clínica FOSCAL",
+      "experiencia_anos": 16,
+      "resumen_bio": "Neumólogo con subespecialidad en medicina crítica y cuidados intensivos",
+      "calificacion_promedio": 4.6,
+      "estado_verificacion": "VERIFICADO",
+      "fecha_verificacion": "2024-03-25"
+    },
+    {
+      "id_usuario": 10,
+      "numero_licencia": "MED-2019-678",
+      "id_especialidad": 8,
+      "hospital_afiliado": "Centro Médico Santa Marta",
+      "experiencia_anos": 4,
+      "resumen_bio": "Otorrinolaringóloga especializada en cirugía de cabeza y cuello",
+      "calificacion_promedio": 4.5,
+      "estado_verificacion": "VERIFICADO",
+      "fecha_verificacion": "2024-04-01"
+    }
+  ],
+
+  "calendario_disponibilidad": [
+    {
+      "id_medico": 1,
+      "dia_semana": "MARTES",
+      "hora_inicio": "08:00:00",
+      "hora_fin": "12:00:00",
+      "intervalo_cita_minutos": 45,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 1,
+      "dia_semana": "JUEVES",
+      "hora_inicio": "14:00:00",
+      "hora_fin": "18:00:00",
+      "intervalo_cita_minutos": 45,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 1,
+      "dia_semana": "VIERNES",
+      "hora_inicio": "08:00:00",
+      "hora_fin": "12:00:00",
+      "intervalo_cita_minutos": 45,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 2,
+      "dia_semana": "LUNES",
+      "hora_inicio": "09:00:00",
+      "hora_fin": "13:00:00",
+      "intervalo_cita_minutos": 40,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 2,
+      "dia_semana": "MIERCOLES",
+      "hora_inicio": "09:00:00",
+      "hora_fin": "13:00:00",
+      "intervalo_cita_minutos": 40,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 2,
+      "dia_semana": "VIERNES",
+      "hora_inicio": "14:00:00",
+      "hora_fin": "17:00:00",
+      "intervalo_cita_minutos": 40,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 3,
+      "dia_semana": "LUNES",
+      "hora_inicio": "10:00:00",
+      "hora_fin": "14:00:00",
+      "intervalo_cita_minutos": 35,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 3,
+      "dia_semana": "MARTES",
+      "hora_inicio": "10:00:00",
+      "hora_fin": "14:00:00",
+      "intervalo_cita_minutos": 35,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 3,
+      "dia_semana": "JUEVES",
+      "hora_inicio": "15:00:00",
+      "hora_fin": "19:00:00",
+      "intervalo_cita_minutos": 35,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 4,
+      "dia_semana": "MARTES",
+      "hora_inicio": "08:00:00",
+      "hora_fin": "12:00:00",
+      "intervalo_cita_minutos": 50,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 4,
+      "dia_semana": "MIERCOLES",
+      "hora_inicio": "14:00:00",
+      "hora_fin": "18:00:00",
+      "intervalo_cita_minutos": 50,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 4,
+      "dia_semana": "VIERNES",
+      "hora_inicio": "08:00:00",
+      "hora_fin": "12:00:00",
+      "intervalo_cita_minutos": 50,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 5,
+      "dia_semana": "LUNES",
+      "hora_inicio": "14:00:00",
+      "hora_fin": "18:00:00",
+      "intervalo_cita_minutos": 30,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 5,
+      "dia_semana": "MIERCOLES",
+      "hora_inicio": "09:00:00",
+      "hora_fin": "13:00:00",
+      "intervalo_cita_minutos": 30,
+      "estado": "ACTIVO"
+    },
+    {
+      "id_medico": 5,
+      "dia_semana": "JUEVES",
+      "hora_inicio": "14:00:00",
+      "hora_fin": "18:00:00",
+      "intervalo_cita_minutos": 30,
+      "estado": "ACTIVO"
+    }
+  ],
+
+  "citas": [
+    {
+      "id_paciente": 1,
+      "id_medico": 1,
+      "fecha_cita": "2024-10-15",
+      "hora_cita": "08:45:00",
+      "tipo_cita": "PRESENCIAL",
+      "motivo_consulta": "Dolor de cabeza recurrente y mareos",
+      "estado": "COMPLETADA",
+      "fecha_creacion": "2024-10-08 09:30:00"
+    },
+    {
+      "id_paciente": 2,
+      "id_medico": 2,
+      "fecha_cita": "2024-10-16",
+      "hora_cita": "09:40:00",
+      "tipo_cita": "PRESENCIAL",
+      "motivo_consulta": "Control de colesterol y revisión de tratamiento",
+      "estado": "COMPLETADA",
+      "fecha_creacion": "2024-10-09 11:00:00"
+    },
+    {
+      "id_paciente": 3,
+      "id_medico": 5,
+      "fecha_cita": "2024-10-17",
+      "hora_cita": "14:30:00",
+      "tipo_cita": "PRESENCIAL",
+      "motivo_consulta": "Dolor de oído y disminución de audición",
+      "estado": "COMPLETADA",
+      "fecha_creacion": "2024-10-10 14:20:00"
+    },
+    {
+      "id_paciente": 4,
+      "id_medico": 2,
+      "fecha_cita": "2024-10-18",
+      "hora_cita": "10:20:00",
+      "tipo_cita": "TELEMEDICINA",
+      "motivo_consulta": "Ajuste de dosis de levotiroxina",
+      "estado": "COMPLETADA",
+      "fecha_creacion": "2024-10-11 16:45:00"
+    },
+    {
+      "id_paciente": 5,
+      "id_medico": 1,
+      "fecha_cita": "2024-10-19",
+      "hora_cita": "15:30:00",
+      "tipo_cita": "PRESENCIAL",
+      "motivo_consulta": "Consulta por migraña crónica",
+      "estado": "COMPLETADA",
+      "fecha_creacion": "2024-10-12 10:15:00"
+    },
+    {
+      "id_paciente": 1,
+      "id_medico": 1,
+      "fecha_cita": "2025-10-29",
+      "hora_cita": "09:30:00",
+      "tipo_cita": "PRESENCIAL",
+      "motivo_consulta": "Seguimiento neurológico post-tratamiento",
+      "estado": "PROGRAMADA",
+      "fecha_creacion": "2024-10-20 12:00:00"
+    },
+    {
+      "id_paciente": 2,
+      "id_medico": 2,
+      "fecha_cita": "2025-11-02",
+      "hora_cita": "11:00:00",
+      "tipo_cita": "PRESENCIAL",
+      "motivo_consulta": "Control trimestral de colesterol",
+      "estado": "PROGRAMADA",
+      "fecha_creacion": "2024-10-21 09:30:00"
+    },
+    {
+      "id_paciente": 4,
+      "id_medico": 3,
+      "fecha_cita": "2025-11-05",
+      "hora_cita": "10:35:00",
+      "tipo_cita": "PRESENCIAL",
+      "motivo_consulta": "Evaluación por molestias gástricas",
+      "estado": "PROGRAMADA",
+      "fecha_creacion": "2024-10-22 15:20:00"
+    },
+    {
+      "id_paciente": 3,
+      "id_medico": 4,
+      "fecha_cita": "2024-10-20",
+      "hora_cita": "08:50:00",
+      "tipo_cita": "PRESENCIAL",
+      "motivo_consulta": "Evaluación respiratoria",
+      "estado": "CANCELADA",
+      "fecha_creacion": "2024-10-13 13:00:00"
+    },
+    {
+      "id_paciente": 5,
+      "id_medico": 3,
+      "fecha_cita": "2024-10-14",
+      "hora_cita": "16:05:00",
+      "tipo_cita": "TELEMEDICINA",
+      "motivo_consulta": "Consulta gastroenterológica",
+      "estado": "NO_ASISTIO",
+      "fecha_creacion": "2024-10-07 11:30:00"
+    }
+  ],
+
+  "historial_medico": [
+    {
+      "id_cita": 1,
+      "id_paciente": 1,
+      "id_medico": 1,
+      "diagnostico": "Cefalea tensional crónica. Sin signos de patología neurológica grave.",
+      "sintomas_reportados": "Dolor de cabeza bilateral tipo presión, mareos ocasionales, sensibilidad a la luz",
+      "tratamiento_recomendado": "Manejo del estrés, terapia de relajación, ejercicio regular. Evitar desencadenantes como falta de sueño.",
+      "medicamentos_prescritos": "Naproxeno 500mg según necesidad, Amitriptilina 25mg nocturna",
+      "observaciones": "Se recomiendan técnicas de relajación y consulta con psicología si persiste el estrés. Control en 4 semanas.",
+      "fecha_proximo_seguimiento": "2024-11-15"
+    },
+    {
+      "id_cita": 2,
+      "id_paciente": 2,
+      "id_medico": 2,
+      "diagnostico": "Dislipidemia mixta en tratamiento. Niveles de colesterol LDL aún por encima del objetivo.",
+      "sintomas_reportados": "Sin síntomas específicos, control de rutina",
+      "tratamiento_recomendado": "Continuar con estatinas, dieta baja en grasas saturadas, ejercicio aeróbico 30 min/día mínimo 5 días/semana",
+      "medicamentos_prescritos": "Atorvastatina 40mg (aumento de dosis), Omega 3 1000mg",
+      "observaciones": "Se aumenta dosis de estatina. Control de perfil lipídico en 3 meses. Enfatizar importancia de cambios en estilo de vida.",
+      "fecha_proximo_seguimiento": "2025-01-16"
+    },
+    {
+      "id_cita": 3,
+      "id_paciente": 3,
+      "id_medico": 5,
+      "diagnostico": "Otitis media aguda del oído derecho. Membrana timpánica hiperémica.",
+      "sintomas_reportados": "Dolor intenso en oído derecho, sensación de oído tapado, leve disminución de audición",
+      "tratamiento_recomendado": "Antibióticoterapia, analgesia, reposo relativo. Evitar agua en oídos.",
+      "medicamentos_prescritos": "Amoxicilina 875mg cada 12 horas por 7 días, Ibuprofeno 400mg cada 8 horas",
+      "observaciones": "Explicado signos de alarma. Si no mejora en 48-72 horas, reevaluar. Control post-tratamiento.",
+      "fecha_proximo_seguimiento": "2024-10-27"
+    },
+    {
+      "id_cita": 4,
+      "id_paciente": 4,
+      "id_medico": 2,
+      "diagnostico": "Hipotiroidismo primario en tratamiento. TSH ligeramente elevada.",
+      "sintomas_reportados": "Fatiga leve, sin otros síntomas",
+      "tratamiento_recomendado": "Ajuste de dosis de levotiroxina. Tomar en ayunas 30 minutos antes del desayuno.",
+      "medicamentos_prescritos": "Levotiroxina 125mcg (aumento de dosis)",
+      "observaciones": "Se aumenta dosis de 100mcg a 125mcg. Control de TSH en 6 semanas. Mantener horario constante de toma.",
+      "fecha_proximo_seguimiento": "2024-12-02"
+    },
+    {
+      "id_cita": 5,
+      "id_paciente": 5,
+      "id_medico": 1,
+      "diagnostico": "Migraña crónica con aura. Patrón de cefalea compatible con migraña.",
+      "sintomas_reportados": "Episodios de cefalea hemicránea pulsátil intensa, precedida por aura visual, fotofobia, náuseas",
+      "tratamiento_recomendado": "Terapia preventiva con betabloqueador, identificar y evitar desencadenantes, llevar diario de migraña",
+      "medicamentos_prescritos": "Propranolol 40mg dos veces al día, Sumatriptán 100mg para crisis agudas",
+      "observaciones": "Iniciar tratamiento preventivo. Evaluar respuesta en 2 meses. Evitar desencadenantes identificados (estrés, falta de sueño, ciertos alimentos).",
+      "fecha_proximo_seguimiento": "2024-12-19"
+    }
+  ],
+
+  "prescripciones": [
+    {
+      "id_historial": 1,
+      "nombre_medicamento": "Naproxeno",
+      "dosis": "500mg",
+      "frecuencia": "Según necesidad (máximo cada 8 horas)",
+      "duracion_dias": 30,
+      "instrucciones": "Tomar con alimentos para evitar molestias gástricas. No exceder 1000mg por día.",
+      "fecha_prescripcion": "2024-10-15"
+    },
+    {
+      "id_historial": 1,
+      "nombre_medicamento": "Amitriptilina",
+      "dosis": "25mg",
+      "frecuencia": "Una vez al día por la noche",
+      "duracion_dias": 30,
+      "instrucciones": "Tomar 2 horas antes de dormir. Puede causar somnolencia, no conducir después de tomarla.",
+      "fecha_prescripcion": "2024-10-15"
+    },
+    {
+      "id_historial": 2,
+      "nombre_medicamento": "Atorvastatina",
+      "dosis": "40mg",
+      "frecuencia": "Una vez al día",
+      "duracion_dias": 90,
+      "instrucciones": "Tomar preferiblemente por la noche. Puede tomarse con o sin alimentos.",
+      "fecha_prescripcion": "2024-10-16"
+    },
+    {
+      "id_historial": 2,
+      "nombre_medicamento": "Omega 3 (EPA + DHA)",
+      "dosis": "1000mg",
+      "frecuencia": "Una vez al día",
+      "duracion_dias": 90,
+      "instrucciones": "Tomar con las comidas principales.",
+      "fecha_prescripcion": "2024-10-16"
+    },
+    {
+      "id_historial": 3,
+      "nombre_medicamento": "Amoxicilina",
+      "dosis": "875mg",
+      "frecuencia": "Cada 12 horas",
+      "duracion_dias": 7,
+      "instrucciones": "Completar todo el tratamiento incluso si se siente mejor. Tomar con alimentos.",
+      "fecha_prescripcion": "2024-10-17"
+    },
+    {
+      "id_historial": 3,
+      "nombre_medicamento": "Ibuprofeno",
+      "dosis": "400mg",
+      "frecuencia": "Cada 8 horas según necesidad",
+      "duracion_dias": 7,
+      "instrucciones": "Tomar con alimentos. Para control del dolor y la inflamación.",
+      "fecha_prescripcion": "2024-10-17"
+    },
+    {
+      "id_historial": 4,
+      "nombre_medicamento": "Levotiroxina",
+      "dosis": "125mcg",
+      "frecuencia": "Una vez al día en ayunas",
+      "duracion_dias": 90,
+      "instrucciones": "Tomar 30-60 minutos antes del desayuno con agua. No tomar con calcio o hierro.",
+      "fecha_prescripcion": "2024-10-18"
+    },
+    {
+      "id_historial": 5,
+      "nombre_medicamento": "Propranolol",
+      "dosis": "40mg",
+      "frecuencia": "Dos veces al día",
+      "duracion_dias": 60,
+      "instrucciones": "Tomar con las comidas. Tratamiento preventivo, no suspender abruptamente.",
+      "fecha_prescripcion": "2024-10-19"
+    },
+    {
+      "id_historial": 5,
+      "nombre_medicamento": "Sumatriptán",
+      "dosis": "100mg",
+      "frecuencia": "Según necesidad al inicio de la crisis",
+      "duracion_dias": 60,
+      "instrucciones": "Tomar al primer signo de migraña. Máximo 2 dosis en 24 horas con 2 horas de separación.",
+      "fecha_prescripcion": "2024-10-19"
+    }
+  ],
+
+  "evaluaciones": [
+    {
+      "id_paciente": 1,
+      "id_medico": 1,
+      "calificacion": 5,
+      "comentario": "Excelente atención de la Dra. Jiménez, muy profesional y empática. Explicó todo claramente y me sentí muy bien atendida.",
+      "fecha_evaluacion": "2024-10-16 14:20:00",
+      "respuesta_medico": "Muchas gracias por sus amables palabras. Me alegra poder ayudarle con su tratamiento."
+    },
+    {
+      "id_paciente": 2,
+      "id_medico": 2,
+      "calificacion": 5,
+      "comentario": "El Dr. Mendoza es muy dedicado y explica todo con paciencia. Estoy muy satisfecho con mi tratamiento.",
+      "fecha_evaluacion": "2024-10-17 10:45:00",
+      "respuesta_medico": "Gracias por su confianza. Seguiremos trabajando juntos para controlar sus niveles de colesterol."
+    },
+    {
+      "id_paciente": 3,
+      "id_medico": 5,
+      "calificacion": 4,
+      "comentario": "Buena atención, la doctora fue muy profesional. El tratamiento ha funcionado bien.",
+      "fecha_evaluacion": "2024-10-18 16:30:00",
+      "respuesta_medico": "Me alegra saber que está mejorando. Cualquier duda, no dude en contactarme."
+    },
+    {
+      "id_paciente": 4,
+      "id_medico": 2,
+      "calificacion": 5,
+      "comentario": "Muy contenta con la teleconsulta. El doctor fue muy claro y ajustó mi medicamento perfectamente.",
+      "fecha_evaluacion": "2024-10-19 11:20:00",
+      "respuesta_medico": "Gracias. Es importante mantener los niveles hormonales estables. Nos vemos en el control."
+    },
+    {
+      "id_paciente": 5,
+      "id_medico": 1,
+      "calificacion": 5,
+      "comentario": "La Dra. Jiménez me dio esperanza con mi migraña. El tratamiento preventivo está funcionando.",
+      "fecha_evaluacion": "2024-10-20 13:00:00",
+      "respuesta_medico": "Excelente noticia. La constancia con el tratamiento es clave. Siga con el diario de migraña."
+    },
+    {
+      "id_paciente": 1,
+      "id_medico": 1,
+      "calificacion": 5,
+      "comentario": "Segunda consulta y sigo igual de satisfecha. Muy recomendable.",
+      "fecha_evaluacion": "2024-10-21 09:15:00",
+      "respuesta_medico": null
+    }
+  ],
+
+  "notificaciones": [
+    {
+      "id_usuario": 1,
+      "tipo_notificacion": "CITA_CONFIRMADA",
+      "titulo": "Cita Confirmada - Neurología",
+      "contenido": "Su cita con Dra. Camila Jiménez ha sido confirmada para el 29/10/2025 a las 9:30 AM",
+      "fecha_envio": "2024-10-20 12:15:00",
+      "leida": true,
+      "enlace_relacionado": "/citas/6"
+    },
+    {
+      "id_usuario": 1,
+      "tipo_notificacion": "RECORDATORIO",
+      "titulo": "Recordatorio de Cita",
+      "contenido": "Recuerde su cita de seguimiento neurológico mañana a las 9:30 AM",
+      "fecha_envio": "2024-10-21 08:00:00",
+      "leida": false,
+      "enlace_relacionado": "/citas/6"
+    },
+    {
+      "id_usuario": 2,
+      "tipo_notificacion": "CITA_CONFIRMADA",
+      "titulo": "Cita Confirmada - Endocrinología",
+      "contenido": "Su cita de control con Dr. Santiago Mendoza ha sido agendada para el 02/11/2025",
+      "fecha_envio": "2024-10-21 09:45:00",
+      "leida": true,
+      "enlace_relacionado": "/citas/7"
+    },
+    {
+      "id_usuario": 2,
+      "tipo_notificacion": "RESULTADO",
+      "titulo": "Resultados de Laboratorio Disponibles",
+      "contenido": "Sus resultados de perfil lipídico ya están disponibles para consultar",
+      "fecha_envio": "2024-10-18 14:30:00",
+      "leida": false,
+      "enlace_relacionado": "/historial/2"
+    },
+    {
+      "id_usuario": 3,
+      "tipo_notificacion": "MENSAJE",
+      "titulo": "Recomendaciones Post-Consulta",
+      "contenido": "Recuerde completar todo el tratamiento antibiótico y mantener oídos secos",
+      "fecha_envio": "2024-10-17 18:00:00",
+      "leida": true,
+      "enlace_relacionado": "/historial/3"
+    },
+    {
+      "id_usuario": 4,
+      "tipo_notificacion": "CITA_CONFIRMADA",
+      "titulo": "Nueva Cita Agendada",
+      "contenido": "Se ha confirmado su cita con Dra. Natalia Vega para el 05/11/2025",
+      "fecha_envio": "2024-10-22 15:30:00",
+      "leida": false,
+      "enlace_relacionado": "/citas/8"
+    },
+    {
+      "id_usuario": 5,
+      "tipo_notificacion": "RECORDATORIO",
+      "titulo": "Seguimiento de Tratamiento",
+      "contenido": "Recuerde llevar su diario de migrañas a la próxima consulta",
+      "fecha_envio": "2024-10-20 10:00:00",
+      "leida": true,
+      "enlace_relacionado": "/historial/5"
+    },
+    {
+      "id_usuario": 6,
+      "tipo_notificacion": "MENSAJE",
+      "titulo": "Nueva Evaluación Recibida",
+      "contenido": "Ha recibido una nueva evaluación de 5 estrellas de Daniela Vargas",
+      "fecha_envio": "2024-10-16 14:25:00",
+      "leida": true,
+      "enlace_relacionado": "/evaluaciones"
+    },
+    {
+      "id_usuario": 7,
+      "tipo_notificacion": "CITA_CONFIRMADA",
+      "titulo": "Nueva Cita Agendada",
+      "contenido": "Se ha programado una nueva cita para el 02/11/2025 con Felipe Moreno",
+      "fecha_envio": "2024-10-21 09:50:00",
+      "leida": false,
+      "enlace_relacionado": "/citas/7"
+    },
+    {
+      "id_usuario": 10,
+      "tipo_notificacion": "MENSAJE",
+      "titulo": "Recordatorio de Actualización",
+      "contenido": "Por favor actualice su disponibilidad para el próximo mes",
+      "fecha_envio": "2024-10-22 08:00:00",
+      "leida": false,
+      "enlace_relacionado": "/disponibilidad"
+    }
+  ]
+}
