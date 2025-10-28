@@ -1,0 +1,15 @@
+.card {
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(33, 101, 243, 0.04);
+}
+h1 span {
+  color: #377DFF;
+}
+button {
+  background-color: #377DFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
