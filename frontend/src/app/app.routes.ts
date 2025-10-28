@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { LoginCardComponent } from './components/login-card/login-card.component';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
-  { path: '', component: LoginCardComponent },
+  { path: '', component: HomeComponent },
   // ...otras rutas después
 ];

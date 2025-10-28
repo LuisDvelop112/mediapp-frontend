@@ -1,79 +1,90 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-7">
-      <h1 class="fw-bold">Agenda tus citas médicas de forma <span class="text-primary">fácil y rápida</span></h1>
-      <p>Conecta con profesionales de la salud, agenda citas en tiempo real y gestiona tu historial médico desde una sola plataforma.</p>
-      <div class="row mb-4">
-        <div class="col-6 mb-2">
-          <i class="bi bi-calendar-check"></i>
-          <strong>Agenda en tiempo real</strong>
-          <div>Ve la disponibilidad y agenda al instante</div>
-        </div>
-        <div class="col-6 mb-2">
-          <i class="bi bi-bell"></i>
-          <strong>Recordatorios automáticos</strong>
-          <div>Nunca olvides una cita importante</div>
-        </div>
-        <div class="col-6 mb-2">
-          <i class="bi bi-people"></i>
-          <strong>Múltiples especialidades</strong>
-          <div>Encuentra el profesional que necesitas</div>
-        </div>
-        <div class="col-6 mb-2">
-          <i class="bi bi-shield-lock"></i>
-          <strong>Datos seguros</strong>
-          <div>Tu información protegida siempre</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-5">
-      <div class="card shadow p-4">
-        <ul class="nav nav-tabs mb-3">
-          <li class="nav-item"><a class="nav-link active" href="#">Iniciar Sesión</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Registrarse</a></li>
-        </ul>
-        <h3 class="fw-bold">Bienvenido de vuelta</h3>
-        <form>
-          <div class="mb-3">
-            <input type="email" class="form-control" placeholder="tu@email.com">
-          </div>
-          <div class="mb-3">
-            <input type="password" class="form-control" placeholder="Contraseña">
-          </div>
-          <button class="btn btn-primary w-100">Iniciar Sesión</button>
-          <div class="text-center mt-2">
-            <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
-          </div>
-        </form>
-      </div>
+<!-- Header (navbar + botón login) -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">MediApp</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Profesionales</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        <li class="nav-item">
+          <button class="btn btn-outline-primary ms-4" type="button">Iniciar Sesión</button>
+        </li>
+      </ul>
     </div>
   </div>
+</nav>
 
-  <!-- Servicios -->
-  <div class="mt-5">
-    <h2 class="fw-bold text-center">Nuestros Servicios</h2>
-    <div class="row justify-content-center mt-3">
-      <div class="col-md-3 text-center mb-3">
-        <div class="card p-3">
-          <i class="bi bi-stethoscope fs-1 text-primary"></i>
-          <strong>Medicina General</strong>
-          <div>Consultas médicas generales y chequeos preventivos</div>
+<!-- Main section -->
+<div class="container py-5">
+  <div class="row align-items-center g-4">
+    <!-- IZQUIERDA: Info principal -->
+    <div class="col-12 col-md-6">
+      <h1 class="fw-bold mb-3" style="font-size:2.5rem;">
+        Agenda tus citas médicas de forma <span class="text-primary">fácil y rápida</span>
+      </h1>
+      <p class="mb-4">Conecta con profesionales de la salud, agenda citas en tiempo real y gestiona tu historial médico desde una sola plataforma.</p>
+      <div class="row mb-2">
+        <div class="col-6 mb-2">
+          <i class="bi bi-calendar-check me-2 text-primary"></i>
+          <span class="fw-semibold">Agenda en tiempo real</span>
+          <div class="text-muted" style="font-size:0.95rem;">Ve la disponibilidad y agenda al instante</div>
+        </div>
+        <div class="col-6 mb-2">
+          <i class="bi bi-bell me-2 text-primary"></i>
+          <span class="fw-semibold">Recordatorios automáticos</span>
+          <div class="text-muted" style="font-size:0.95rem;">Nunca olvides una cita importante</div>
+        </div>
+        <div class="col-6 mb-2">
+          <i class="bi bi-people me-2 text-primary"></i>
+          <span class="fw-semibold">Múltiples especialidades</span>
+          <div class="text-muted" style="font-size:0.95rem;">Encuentra el profesional que necesitas</div>
+        </div>
+        <div class="col-6 mb-2">
+          <i class="bi bi-shield-lock me-2 text-primary"></i>
+          <span class="fw-semibold">Datos seguros</span>
+          <div class="text-muted" style="font-size:0.95rem;">Tu información protegida siempre</div>
         </div>
       </div>
-      <div class="col-md-3 text-center mb-3">
-        <div class="card p-3">
-          <i class="bi bi-heart fs-1 text-danger"></i>
-          <strong>Cardiología</strong>
-          <div>Especialistas en salud cardiovascular</div>
-        </div>
-      </div>
-      <div class="col-md-3 text-center mb-3">
-        <div class="card p-3">
-          <i class="bi bi-people fs-1 text-success"></i>
-          <strong>Psicología</strong>
-          <div>Apoyo en salud mental y bienestar emocional</div>
+    </div>
+    <!-- DERECHA: Cards servicios -->
+    <div class="col-12 col-md-6 d-flex flex-column align-items-center">
+      <h2 class="fw-bold text-center mb-4">Nuestros Servicios</h2>
+      <div class="row w-100 justify-content-center">
+        <div class="col-12 col-md-10">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <div class="card text-center p-3 h-100 service-card border-0">
+                <i class="bi bi-prescription fs-1"></i>
+                <strong>Medicina General</strong>
+                <div class="text-muted" style="font-size:0.96rem;">Consultas médicas generales y chequeos preventivos</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card text-center p-3 h-100 service-card border-0">
+                <i class="bi bi-heart fs-1 text-danger mb-2"></i>
+                <strong>Cardiología</strong>
+                <div class="text-muted" style="font-size:0.96rem;">Especialistas en salud cardiovascular</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card text-center p-3 h-100 service-card border-0">
+                <i class="bi bi-people fs-1 text-success mb-2"></i>
+                <strong>Psicología</strong>
+                <div class="text-muted" style="font-size:0.96rem;">Apoyo en salud mental y bienestar emocional</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <app-footer></app-footer>
 </div>
+
+
+
