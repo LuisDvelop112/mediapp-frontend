@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.landing {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1e293b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    display: flex;
+    flex: 1;
+    align-items: flex-start ;
+    justify-content: space-between;
+    padding: 2rem 6rem 4rem;
+    gap: 4rem;
+
+    .text-section {
+      flex: 1;
+      h1 {
+        font-size: 2.8rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+        color: #1e293b;
+
+        .highlight {
+          color: #0056ff;
+        }
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #4b5563;
+        margin-bottom: 2rem;
+        max-width: 520px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+
+        .feature {
+          display: flex;
+          align-items: start;
+          gap: 1rem;
+
+          img {
+            width: 40px;
+            height: 40px;
+          }
+
+          h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+          }
+
+          p {
+            font-size: 0.9rem;
+            color: #6b7280;
+          }
+        }
+      }
+    }
+
+    .form-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      max-width: 500px;
+
+      .form-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 2rem;
+        width: 100%;
+        margin-bottom: 2rem;
+        position: relative;
+        height: 2.5rem; // fija la altura del contenedor
+
+        .toggle-btn {
+          font-family: 'Inter', sans-serif;  
+          background: none;
+          border: none;
+          font-size: 1.05rem;
+          font-weight: 600;
+          color: #6b7280;
+          cursor: pointer;
+          padding: 0;
+          padding-bottom: 0.5rem;
+          position: relative;
+          transition: color 0.3s ease;
+          flex: 1;
+          text-align: center;
+
+          // línea fija de fondo
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #e5e7eb;
+          }
+
+          // línea azul animada
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0%;
+            height: 2px;
+            background-color: #0056ff;
+            transition: width 0.3s ease;
+          }
+
+          &.active {
+            color: #0056ff;
+
+            &::after {
+              width: 100%;
+            }
+          }
+
+          &:hover {
+            color: #0041cc;
+          }
+        }
+      }
+
+      .form-container {
+        width: 100%;
+        background: #ffffff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 2.5rem;
+      }
+    }
+  }
+
+  .services {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #f9fafb;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 3rem;
+    }
+
+    .service-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      .service-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        padding: 2rem;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        img {
+          width: 60px;
+          margin-bottom: 1rem;
+        }
+
+        h3 {
+          color: #1e293b;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          color: #6b7280;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .content {
+      flex-direction: column;
+      padding: 2rem;
+
+      .text-section,
+      .form-section {
+        flex: none;
+        width: 100%;
+      }
+
+      .form-section {
+        .form-toggle {
+          gap: 1.2rem;
+        }
+      }
+    }
+  }
+}

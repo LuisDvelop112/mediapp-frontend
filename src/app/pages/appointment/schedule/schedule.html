@@ -1,0 +1,38 @@
+<div class="schedule-container">
+  <section class="intro">
+    <h2 class="title">Agendar Cita</h2>
+    <p class="subtitle">
+      Selecciona la especialidad, profesional, fecha y hora de tu cita médica.
+    </p>
+  </section>
+
+  <form class="schedule-form" (ngSubmit)="confirmarCita()">
+    <div class="form-group">
+      <label for="especialidad">Especialidad</label>
+      <select id="especialidad" [(ngModel)]="cita.especialidad" name="especialidad" required>
+        <option value="" disabled selected>Selecciona una especialidad</option>
+        <option *ngFor="let esp of especialidades" [value]="esp">{{ esp }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="profesional">Profesional</label>
+      <select id="profesional" [(ngModel)]="cita.profesional" name="profesional" required>
+        <option value="" disabled selected>Selecciona un profesional</option>
+        <option *ngFor="let med of profesionales" [value]="med">{{ med }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="fecha">Fecha</label>
+      <input type="date" id="fecha" [(ngModel)]="cita.fecha" name="fecha" required />
+    </div>
+
+    <div class="form-group">
+      <label for="hora">Hora</label>
+      <input type="time" id="hora" [(ngModel)]="cita.hora" name="hora" required />
+    </div>
+
+    <button type="submit" class="btn-primary">Confirmar cita</button>
+  </form>
+</div>

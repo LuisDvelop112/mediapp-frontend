@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.auth-container {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #e0e7ff 0%, #eff6ff 100%);
+
+  .form-wrapper {
+    width: 400px;
+    min-height: 500px;
+    background-color: #fbf9fa;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+
+      .tab {
+        background: none;
+        border: none;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #6b7280;
+        padding-bottom: 0.5rem;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: 0.3s;
+
+        &.active {
+          color: #0056ff;
+          border-color: #0056ff;
+        }
+
+        &:hover {
+          color: #1e3a8a;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      flex-grow: 1;
+      justify-content: center;
+
+      input {
+        padding: 0.75rem 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        transition: border-color 0.2s;
+
+        &:focus {
+          border-color: #0056ff;
+          outline: none;
+        }
+      }
+
+      .btn-primary {
+        background-color: #0056ff;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #0041cc;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    .form-wrapper {
+      width: 90%;
+      min-height: auto;
+      padding: 2rem;
+    }
+  }
+
+  select {
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+    background-color: white;
+
+    &:focus {
+      border-color: #0056ff;
+      outline: none;
+    }
+  }
+
+}

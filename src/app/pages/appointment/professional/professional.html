@@ -1,0 +1,23 @@
+<div class="professionals-container">
+  <h2 class="title">Nuestros Profesionales</h2>
+  <p class="subtitle">Conoce a los médicos verificados que forman parte de MediApp</p>
+
+  <div class="professionals-grid">
+    <div class="professional-card" *ngFor="let medico of medicos">
+      <div class="image-container">
+        <img [src]="medico.foto || 'assets/default-doctor.jpg'" alt="Foto del profesional" />
+      </div>
+      <div class="info">
+        <h3>{{ medico.usuario.nombre }}</h3>
+        <p class="especialidad">{{ medico.especialidad.nombre || 'General' }}</p>
+        <p class="hospital">{{ medico.hospitalAfiliado || 'Centro Médico MediApp' }}</p>
+        <p class="experiencia">{{ medico.experienciaAnos }} años de experiencia</p>
+        <div class="rating">
+          ⭐
+          <span class="promedio">{{ medico.calificacionPromedio || 4.5 }}</span>
+        </div>
+        <button class="view-btn">Ver Perfil</button>
+      </div>
+    </div>
+  </div>
+</div>

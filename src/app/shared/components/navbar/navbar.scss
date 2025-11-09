@@ -1,0 +1,23 @@
+&__actions {
+  display: flex;
+  gap: 1rem;
+
+  .btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border: none;
+
+    &-logout {
+      background-color: #ef4444;
+      color: white;
+
+      &:hover {
+        background-color: #dc2626;
+      }
+    }
+  }
+}

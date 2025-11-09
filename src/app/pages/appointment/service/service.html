@@ -1,0 +1,19 @@
+<div class="services-container">
+  <section class="intro">
+    <h2 class="title">Nuestros Servicios Médicos</h2>
+    <p class="subtitle">
+      En MediApp te conectamos con profesionales de distintas especialidades para brindarte la mejor atención.
+    </p>
+  </section>
+
+  <section class="services-grid">
+    <div class="service-card" *ngFor="let servicio of servicios">
+      <div class="icon-circle">
+        <i [class]="servicio.icon"></i>
+      </div>
+      <h3>{{ servicio.nombre }}</h3>
+      <p>{{ servicio.descripcion }}</p>
+      <button class="btn-primary" routerLink="/appointment/professional">Ver especialistas</button>
+    </div>
+  </section>
+</div>

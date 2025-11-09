@@ -1,0 +1,97 @@
+<section class="landing">
+  <div class="content">
+    <!-- Sección de texto -->
+    <div class="text-section">
+      <h1>
+        Agenda tus citas médicas de forma
+        <span class="highlight">fácil y rápida</span>
+      </h1>
+      <p>
+        Conecta con profesionales de la salud, agenda citas en tiempo real y gestiona tu historial médico desde una sola plataforma.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <img src="assets/icons/calendar.svg" alt="Calendario" />
+          <div>
+            <h4>Agenda en tiempo real</h4>
+            <p>Ve la disponibilidad y agenda al instante</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <img src="assets/icons/bell.svg" alt="Recordatorios" />
+          <div>
+            <h4>Recordatorios automáticos</h4>
+            <p>Nunca olvides una cita importante</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <img src="assets/icons/users.svg" alt="Profesionales" />
+          <div>
+            <h4>Múltiples especialidades</h4>
+            <p>Encuentra el profesional que necesitas</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <img src="assets/icons/shield.svg" alt="Seguridad" />
+          <div>
+            <h4>Datos seguros</h4>
+            <p>Tu información protegida siempre</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección del formulario dinámico -->
+    <div class="form-section">
+      <div class="form-toggle">
+        <button 
+          class="toggle-btn" 
+          [class.active]="activeForm === 'login'" 
+          (click)="setActiveForm('login')">
+          Iniciar Sesión
+        </button>
+        <button 
+          class="toggle-btn" 
+          [class.active]="activeForm === 'register'" 
+          (click)="setActiveForm('register')">
+          Registrarse
+        </button>
+      </div>
+
+      <div class="form-container">
+        <app-login *ngIf="activeForm === 'login'"></app-login>
+        <app-register *ngIf="activeForm === 'register'"></app-register>
+      </div>
+    </div>
+  </div>
+
+  <!-- Servicios -->
+  <div class="services">
+    <h2>Nuestros Servicios</h2>
+    <p class="subtitle">Encuentra el profesional que necesitas</p>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <img src="assets/icons/stethoscope.svg" alt="Medicina General" />
+        <h3>Medicina General</h3>
+        <p>Consultas médicas generales y chequeos preventivos</p>
+      </div>
+
+      <div class="service-card">
+        <img src="assets/Heart.png" alt="Cardiología" />
+        <h3>Cardiología</h3>
+        <p>Especialistas en salud cardiovascular</p>
+      </div>
+
+      <div class="service-card">
+        <img src="assets/icons/psychology.svg" alt="Psicología" />
+        <h3>Psicología</h3>
+        <p>Apoyo en salud mental y bienestar emocional</p>
+      </div>
+    </div>
+  </div>
+</section>

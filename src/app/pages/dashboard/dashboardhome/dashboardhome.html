@@ -1,0 +1,112 @@
+<div class="dashboard">
+
+  <h1 class="title">¡Hola, {{ userNombre }}!</h1>
+  <p class="subtitle">Aquí tienes un resumen de tus citas médicas</p>
+
+  <!-- TARJETAS PRINCIPALES -->
+  <div class="main-cards">
+
+    <div class="card">
+      <p class="card-title">Próximas Citas</p>
+      <h2 class="number">{{ proximasCitas.length }}</h2>
+      <p class="description">Esta semana</p>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Citas Completadas</p>
+      <h2 class="number">{{ citasCompletadas }}</h2>
+      <p class="description">Este año</p>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Profesionales</p>
+      <h2 class="number">{{ totalProfesionales }}</h2>
+      <p class="description">Diferentes especialistas</p>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Próxima Cita</p>
+      <h2 class="number">{{ siguienteCitaDias }}</h2>
+      <p class="description">Días restantes</p>
+    </div>
+
+  </div>
+
+  <!-- ACCIONES RÁPIDAS -->
+  <div class="quick-actions">
+    <button class="btn-primary" routerLink="/appointment/service">
+      + Agendar Nueva Cita
+    </button>
+
+    <button class="btn-outline">
+      📅 Ver Calendario
+    </button>
+  </div>
+
+  <div class="content-grid">
+
+    <!-- MIS CITAS -->
+    <div class="my-appointments">
+      <div class="header">
+        <h3>Mis Citas</h3>
+
+        <div class="tabs">
+          <button class="active">Próximas</button>
+        </div>
+      </div>
+
+      <div *ngFor="let cita of proximasCitas" class="appointment">
+        <img src="assets/profile-doctor-1.png" class="doc-img" />
+
+        <div class="info">
+          <h4>Dr. {{ cita.medico?.nombre }} {{ cita.medico?.apellido }}</h4>
+          <p>{{ cita.medico?.especialidad?.nombre }}</p>
+          <p class="date">📅 {{ cita.fecha }} — {{ cita.hora }}</p>
+        </div>
+
+        <span 
+          class="status"
+          [ngClass]="{
+            'success': cita.estado === 'CONFIRMADA',
+            'pending': cita.estado === 'PROGRAMADA'
+          }"
+        >
+          {{ cita.estado.toLowerCase() }}
+        </span>
+
+        <button class="small-btn">Gestionar</button>
+      </div>
+
+    </div>
+
+    <!-- MI PERFIL -->
+    <div class="profile-box">
+      <h3>Mi Perfil</h3>
+
+      <div class="user-info">
+        <img src="assets/profile-user.png" class="user-img" />
+
+        <div>
+          <h4>{{ userNombre }} {{ userApellido }}</h4>
+          <p>{{ userEmail }}</p>
+          <p>No definido</p>
+        </div>
+      </div>
+
+      <button class="btn-outline">Editar Perfil</button>
+    </div>
+
+    <!-- NOTIFICACIONES -->
+    <div class="notifications-box">
+      <h3>Notificaciones</h3>
+
+      <div *ngFor="let notif of notificaciones" class="notification">
+        <span class="dot blue"></span>
+        {{ notif.detalle || 'Nueva actualización en tus citas' }}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
