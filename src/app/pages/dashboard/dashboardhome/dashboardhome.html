@@ -84,7 +84,7 @@
       <h3>Mi Perfil</h3>
 
       <div class="user-info">
-        <img src="assets/profile-user.png" class="user-img" />
+  <img [src]="userFotoPerfil || 'assets/profile-user.png'" class="user-img" />
 
         <div>
           <h4>{{ userNombre }} {{ userApellido }}</h4>
@@ -93,7 +93,7 @@
         </div>
       </div>
 
-      <button class="btn-outline">Editar Perfil</button>
+  <button class="btn-outline" routerLink="/profile/edit">Editar Perfil</button>
     </div>
 
     <!-- NOTIFICACIONES -->

@@ -14,7 +14,7 @@ export class Navbar {
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    public authService: AuthService
   ) {}
 
   logout() {

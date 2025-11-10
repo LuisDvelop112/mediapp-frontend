@@ -19,7 +19,7 @@
     </ul>
 
     <!-- Botón cerrar sesión -->
-    <div class="navbar__actions">
+    <div class="navbar__actions" *ngIf="authService.isLoggedIn()">
       <button class="btn btn-logout" (click)="logout()">Cerrar sesión</button>
     </div>
 

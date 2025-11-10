@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CitasService {
 
-  private apiUrl = 'http://localhost:8080/api/citas';
+  private apiUrl = 'http://56.125.172.86:8080/api/citas';
 
   constructor(private http: HttpClient) {}
 

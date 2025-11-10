@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { DashboardService } from '../../../core/services/dashboard.service';
 
 @Component({
   selector: 'app-dashboardhome',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './dashboardhome.html',
   styleUrls: ['./dashboardhome.scss']
 })
@@ -15,6 +16,7 @@ export class Dashboardhome implements OnInit {
   userNombre = localStorage.getItem('user_nombre') || '';
   userApellido = localStorage.getItem('user_apellido') || '';
   userEmail = localStorage.getItem('user_email') || '';
+  userFotoPerfil = localStorage.getItem('user_fotoPerfil') || '';
 
   proximasCitas: any[] = [];
   citasCompletadas = 0;

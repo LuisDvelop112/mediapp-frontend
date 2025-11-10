@@ -7,7 +7,7 @@ import { Observable, map } from 'rxjs';
 })
 export class DashboardService {
 
-  private apiCitas = 'http://localhost:8080/api/citas';
+  private apiCitas = 'http://56.125.172.86:8080/api/citas';
 
   constructor(private http: HttpClient) {}
 

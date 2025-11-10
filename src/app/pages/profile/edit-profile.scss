@@ -1,0 +1,100 @@
+.edit-profile-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 2rem;
+}
+.edit-profile-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.photo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.profile-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2563eb;
+}
+.camera-icon {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 50%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.photo-label {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.photo-hint {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.form-grid .col-span-2 {
+  grid-column: span 2;
+}
+label {
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  display: block;
+}
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+.btn-outline {
+  background: transparent;
+  color: #2563eb;
+  border: 1.5px solid #2563eb;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline:hover {
+  background: #2563eb;
+  color: #fff;
+}

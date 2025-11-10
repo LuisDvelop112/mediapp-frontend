@@ -3,6 +3,7 @@ import { Landinghome } from './pages/landing/landinghome/landinghome';
 import { Login } from './pages/auth/login/login';
 import { Register } from './pages/auth/register/register';
 import { Dashboardhome } from './pages/dashboard/dashboardhome/dashboardhome';
+import { EditProfile } from './pages/profile/edit-profile';
 import { Service } from './pages/appointment/service/service';
 import { Professional } from './pages/appointment/professional/professional';
 import { Schedule } from './pages/appointment/schedule/schedule';
@@ -27,6 +28,12 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
 
+  // ✅ Editar perfil (cualquier usuario autenticado)
+  {
+    path: 'profile/edit',
+    component: EditProfile,
+    canActivate: [AuthGuard]
+  },
   // ✅ Rutas SOLO PARA PACIENTES
   {
     path: 'appointment/service',

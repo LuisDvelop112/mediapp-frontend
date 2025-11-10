@@ -28,7 +28,7 @@ export class Login {
       contraseña: this.password
     };
 
-    this.http.post<any>('http://localhost:8080/api/auth/login', body)
+  this.http.post<any>('http://56.125.172.86:8080/api/auth/login', body)
       .subscribe({
         next: (res) => {
 
