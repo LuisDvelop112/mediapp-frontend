@@ -56,3 +56,5 @@ export const routes: Routes = [
   // ✅ wildcard
   { path: '**', redirectTo: 'landing/home' }
 ];
+
+//prueba
