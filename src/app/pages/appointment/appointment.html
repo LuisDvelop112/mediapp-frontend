@@ -1,0 +1,34 @@
+<div class="appointment-container">
+  <h2>🗓️ Agendar una Cita</h2>
+
+  <form (ngSubmit)="onSubmit()" #form="ngForm" class="appointment-form">
+
+    <label>👨‍⚕️ Médico:</label>
+    <select [(ngModel)]="appointment.medico.idUsuario" name="idUsuarioMedico" required>
+      <option value="">-- Selecciona un médico --</option>
+      <option *ngFor="let doctor of medicos" [value]="doctor.idUsuario">
+        {{ doctor.nombre }} {{ doctor.apellido }}
+      </option>
+    </select>
+
+    <label>📅 Fecha:</label>
+    <input type="date" [(ngModel)]="appointment.fechaCita" name="fechaCita" required />
+
+    <label>🕒 Hora:</label>
+    <input type="time" [(ngModel)]="appointment.horaCita" name="horaCita" required />
+
+    <label>🏥 Tipo de Cita:</label>
+    <select [(ngModel)]="appointment.tipoCita" name="tipoCita" required>
+      <option value="">-- Selecciona tipo --</option>
+      <option value="PRESENCIAL">Presencial</option>
+      <option value="TELEMEDICINA">Telemedicina</option>
+    </select>
+
+    <label>📝 Motivo de la Consulta:</label>
+    <textarea [(ngModel)]="appointment.motivoConsulta" name="motivoConsulta" rows="3"></textarea>
+
+    <button type="submit" [disabled]="!form.valid">Agendar Cita</button>
+  </form>
+
+  <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+</div>

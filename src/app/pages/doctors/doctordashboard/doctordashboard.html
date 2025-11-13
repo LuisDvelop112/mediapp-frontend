@@ -1,0 +1,64 @@
+<div class="doctor-dashboard">
+
+  <h2>👨‍⚕️ Panel del Médico</h2>
+
+  <div class="controls">
+    <label>Filtrar por estado:</label>
+    <select [(ngModel)]="filtroEstado" (change)="cargarCitas()">
+      <option value="PROGRAMADA">Programadas</option>
+      <option value="COMPLETADA">Completadas</option>
+      <option value="CANCELADA">Canceladas</option>
+      <option value="NO_ASISTIO">No asistieron</option>
+    </select>
+  </div>
+
+  <div *ngIf="cargando" class="loading">
+    ⏳ Cargando citas...
+  </div>
+
+  <div *ngIf="!cargando && citas.length === 0" class="empty">
+    😕 No hay citas {{ filtroEstado.toLowerCase() }} actualmente.
+  </div>
+
+  <table *ngIf="!cargando && citas.length > 0" class="appointments-table">
+    <thead>
+      <tr>
+        <th>Paciente</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Tipo</th>
+        <th>Motivo</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of citas">
+        <td>{{ cita.paciente?.nombre }} {{ cita.paciente?.apellido }}</td>
+        <td>{{ cita.fechaCita | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ cita.horaCita }}</td>
+        <td>{{ cita.tipoCita }}</td>
+        <td>{{ cita.motivoConsulta }}</td>
+        <td>
+          <span class="badge" [ngClass]="cita.estado?.toLowerCase()">
+            {{ cita.estado }}
+          </span>
+        </td>
+        <td class="acciones">
+          <!-- Acciones solo si la cita está programada -->
+          <button *ngIf="cita.estado === 'PROGRAMADA'" class="btn completar" (click)="cambiarEstado('completar', cita.idCita)">
+            ✅ Completar
+          </button>
+          <button *ngIf="cita.estado === 'PROGRAMADA'" class="btn cancelar" (click)="cambiarEstado('cancelar', cita.idCita)">
+            ❌ Cancelar
+          </button>
+          <button *ngIf="cita.estado === 'PROGRAMADA'" class="btn noasistio" (click)="cambiarEstado('no-asistio', cita.idCita)">
+            🚫 No asistió
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+</div>

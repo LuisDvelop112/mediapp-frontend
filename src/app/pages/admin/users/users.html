@@ -1,0 +1,42 @@
+<div class="admin-users">
+  <h2>Usuarios 👥</h2>
+
+  <div *ngIf="loading" class="loader">⏳ Cargando pacientes...</div>
+
+  <div class="top-actions">
+    <button class="btn-primary" (click)="openForm()">➕ Crear Paciente</button>
+  </div>
+
+  <p *ngIf="!loading && users.length === 0" class="empty">
+    😕 No hay pacientes registrados.
+  </p>
+
+  <table *ngIf="!loading && users.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Identificación</th>
+        <th>Tipo Sangre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let p of users">
+        <td>{{ p.idPaciente }}</td>
+        <td>{{ p.usuario?.nombre }} {{ p.usuario?.apellido }}</td>
+        <td>{{ p.usuario?.email }}</td>
+        <td>{{ p.numeroIdentificacion || 'No registrado' }}</td>
+        <td>{{ p.tipoSangre || '—' }}</td>
+        <td>
+          <button class="btn-edit" (click)="openForm(p)">✏️</button>
+          <button class="btn-delete" (click)="remove(p.idPaciente)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="message" class="message">{{ message }}</p>
+</div>

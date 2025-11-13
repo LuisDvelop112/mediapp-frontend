@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+$primary: #2563EB;
+$primary-dark: #1D4ED8;
+$secondary-bg: #EFF6FF;
+$text: #111827;
+$text-secondary: #374151;
+$bg: #FFFFFF;
+$border: #E5E7EB;
+$shadow: rgba(0, 0, 0, 0.05);
+$radius: 8px;
+$transition: 0.2s ease-in-out;
+
+.admin-home {
+  text-align: center;
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+  color: $text;
+
+  .home-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .home-subtitle {
+    color: $text-secondary;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+
+  .home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+  }
+
+  .home-card {
+    background: $bg;
+    border: 1px solid $border;
+    border-radius: $radius;
+    box-shadow: 0 4px 16px $shadow;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: $text;
+    cursor: pointer;
+    width: 100%;
+    max-width: 260px;
+    transition: background $transition, box-shadow $transition, transform $transition;
+
+    &:hover {
+      background: $secondary-bg;
+      box-shadow: 0 6px 24px $shadow;
+      transform: translateY(-4px);
+    }
+
+    .icon {
+      font-size: 2rem;
+      color: $primary;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+  }
+}

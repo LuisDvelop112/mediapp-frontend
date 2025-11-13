@@ -1,0 +1,43 @@
+<h2>Especialidades 🩺</h2>
+
+<div *ngIf="loading" class="loader">⏳ Cargando especialidades...</div>
+
+<div class="top-actions">
+  <button class="btn-primary">➕ Nueva Especialidad</button>
+</div>
+
+<table *ngIf="!loading">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let s of specialities">
+      <td>{{ s.idEspecialidad }}</td>
+      <td>{{ s.nombreEspecialidad }}</td>
+      <td>{{ s.descripcion || 'Sin descripción' }}</td>
+
+      <td>
+        <span class="badge" [class.active]="s.estado === 'ACTIVA'" [class.inactive]="s.estado === 'INACTIVA'">
+          {{ s.estado === 'ACTIVA' ? '✅ Activa' : '⛔ Inactiva' }}
+        </span>
+      </td>
+
+      <td class="actions">
+        <button (click)="toggleState(s)">
+          {{ s.estado === 'ACTIVA' ? '🔻 Desactivar' : '✅ Activar' }}
+        </button>
+
+        <button class="btn-edit">✏️</button>
+
+        <button class="btn-delete" (click)="remove(s.idEspecialidad)">🗑️</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
