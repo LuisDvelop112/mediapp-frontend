@@ -8,7 +8,7 @@ import { AuthService } from './auth.service'; // 👈 importa el servicio de aut
 })
 export class DashboardService {
 
-  private apiCitas = 'http://localhost:8080/api/citas';
+  private apiCitas = 'https://backendmedia-app-production.up.railway.app/api/citas';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

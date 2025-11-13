@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
 
-  private api = 'http://localhost:8080/api/pacientes';
+  private api = 'https://backendmedia-app-production.up.railway.app/api/pacientes';
 
   constructor(private http: HttpClient) {}
 

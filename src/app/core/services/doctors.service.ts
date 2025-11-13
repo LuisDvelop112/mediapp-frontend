@@ -36,8 +36,8 @@ export interface Doctor {
 export class DoctorsService {
 
   // ✅ URLs base para usuarios y médicos
-  private readonly API_URL_USUARIOS = 'http://localhost:8080/api/usuarios';
-  private readonly API_URL_MEDICOS = 'http://localhost:8080/api/medicos';
+  private readonly API_URL_USUARIOS = 'https://backendmedia-app-production.up.railway.app/api/usuarios';
+  private readonly API_URL_MEDICOS = 'https://backendmedia-app-production.up.railway.app/api/medicos';
 
   constructor(private http: HttpClient) { }
 

@@ -16,7 +16,7 @@ interface LoginResponse {
 })
 export class AuthService {
   private readonly TOKEN_KEY = 'auth_token'; // nombre en localStorage
-  private readonly API_LOGIN_URL = 'http://localhost:8080/api/auth/login';
+  private readonly API_LOGIN_URL = 'https://backendmedia-app-production.up.railway.app/api/auth/login';
 
 
   constructor(private http: HttpClient, private router: Router) { }

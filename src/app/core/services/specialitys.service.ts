@@ -14,7 +14,7 @@ export type Especialidad = {
 })
 export class SpecialitysService {
 
-  private api = 'http://localhost:8080/api/especialidades';
+  private api = 'https://backendmedia-app-production.up.railway.app/api/especialidades';
 
   constructor(private http: HttpClient) {}
 

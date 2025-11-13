@@ -20,9 +20,12 @@ export interface Appointment {
     providedIn: 'root'
 })
 export class AppointmentService {
-    private readonly API_URL = 'http://localhost:8080/api/citas';
-    private readonly API_PACIENTES = 'http://localhost:8080/api/pacientes';
-    private readonly API_MEDICOS = 'http://localhost:8080/api/medicos';
+
+    private readonly BASE_URL = 'https://backendmedia-app-production.up.railway.app/api';
+
+    private readonly API_URL = `${this.BASE_URL}/citas`;
+    private readonly API_PACIENTES = `${this.BASE_URL}/pacientes`;
+    private readonly API_MEDICOS = `${this.BASE_URL}/medicos`;
 
     constructor(private http: HttpClient, private authService: AuthService) { }
 
@@ -141,11 +144,11 @@ export class AppointmentService {
     }
 
     getAllMedicos(): Observable<any[]> {
-        return this.http.get<any[]>('http://localhost:8080/api/medicos');
+        return this.http.get<any[]>(`${this.BASE_URL}/medicos`);
     }
 
     getMedicosActivos(): Observable<any[]> {
-        return this.http.get<any[]>('http://localhost:8080/api/usuarios/activos/tipo/MEDICO');
+        return this.http.get<any[]>(`${this.BASE_URL}/usuarios/activos/tipo/MEDICO`);
     }
 
     // -------------------------------------------------------------
