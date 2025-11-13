@@ -1,1 +1,41 @@
-<p>doctors works!</p>
+<div class="doctors-container">
+  <h2>👨‍⚕️ Gestión de Médicos</h2>
+
+  <button (click)="loadDoctors()" class="reload-btn">🔄 Recargar Médicos</button>
+
+  <div *ngIf="loading">Cargando médicos...</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <table *ngIf="!loading && doctors.length > 0" class="doctors-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+        <th>Ciudad</th>
+        <th>Especialidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doctor of doctors">
+        <td>{{ doctor.idUsuario }}</td>
+        <td>{{ doctor.nombre }}</td>
+        <td>{{ doctor.apellido }}</td>
+        <td>{{ doctor.email }}</td>
+        <td>{{ doctor.telefono || 'N/A' }}</td>
+        <td>{{ doctor.ciudad || 'N/A' }}</td>
+        <td>{{ doctor.especialidad || 'N/A' }}</td>
+        <td>
+          <button (click)="deleteDoctor(doctor)" class="delete-btn">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && doctors.length === 0" class="empty-message">
+    No hay médicos registrados.
+  </div>
+</div>

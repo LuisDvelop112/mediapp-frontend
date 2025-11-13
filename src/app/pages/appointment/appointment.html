@@ -3,10 +3,20 @@
 
   <form (ngSubmit)="onSubmit()" #form="ngForm" class="appointment-form">
 
+    <!-- 🔹 Seleccionar especialidad -->
+    <label>🏥 Especialidad:</label>
+    <select [(ngModel)]="selectedEspecialidadId" name="idEspecialidad" (change)="filtrarMedicos()" required>
+      <option value="">-- Selecciona una especialidad --</option>
+      <option *ngFor="let esp of especialidades" [value]="esp.idEspecialidad">
+        {{ esp.nombreEspecialidad }}
+      </option>
+    </select>
+
+    <!-- 🔹 Seleccionar médico filtrado -->
     <label>👨‍⚕️ Médico:</label>
     <select [(ngModel)]="appointment.medico.idUsuario" name="idUsuarioMedico" required>
       <option value="">-- Selecciona un médico --</option>
-      <option *ngFor="let doctor of medicos" [value]="doctor.idUsuario">
+      <option *ngFor="let doctor of medicosFiltrados" [value]="doctor.idUsuario">
         {{ doctor.nombre }} {{ doctor.apellido }}
       </option>
     </select>

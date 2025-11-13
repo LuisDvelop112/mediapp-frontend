@@ -1,1 +1,54 @@
-<p>appointments works!</p>
+<div class="admin-appointments-container">
+  <div class="header">
+    <h2 class="titulo">📅 Administración de Citas</h2>
+    <button class="btn-refresh" (click)="refreshList()" [disabled]="loading">
+      🔄 Actualizar lista
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="loading">Cargando citas...</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <table *ngIf="!loading && appointments.length > 0" class="tabla-citas">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Paciente</th>
+        <th>Médico</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Tipo</th>
+        <th>Motivo</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of appointments">
+        <td>{{ cita.idCita }}</td>
+        <td>{{ cita.paciente.idPaciente }}</td>
+        <td>{{ cita.medico.idMedico }}</td>
+        <td>{{ cita.fechaCita }}</td>
+        <td>{{ cita.horaCita }}</td>
+        <td>{{ cita.tipoCita }}</td>
+        <td>{{ cita.motivoConsulta }}</td>
+        <td>
+          <span [ngClass]="{
+            'estado-programada': cita.estado === 'PROGRAMADA',
+            'estado-completada': cita.estado === 'COMPLETADA',
+            'estado-cancelada': cita.estado === 'CANCELADA'
+          }">
+            {{ cita.estado }}
+          </span>
+        </td>
+        <td>
+          <button class="btn-eliminar" (click)="deleteAppointment(cita)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && appointments.length === 0" class="sin-citas">
+    No hay citas registradas.
+  </div>
+</div>

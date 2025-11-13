@@ -9,15 +9,6 @@
       </a>
     </div>
 
-    <!-- Links -->
-    <ul class="navbar__links">
-      <li><a routerLink="/dashboard/home" routerLinkActive="active">Inicio</a></li>
-      <li><a routerLink="/appointment/professional" routerLinkActive="active">Profesionales</a></li>
-      <li><a routerLink="/appointment/service" routerLinkActive="active">Servicios</a></li>
-      <li><a routerLink="/appointment/schedule" routerLinkActive="active">Agendar</a></li>
-      <li><a routerLink="/appointment/confirmation" routerLinkActive="active">Confirmación</a></li>
-    </ul>
-
     <!-- Botón cerrar sesión -->
     <div class="navbar__actions" *ngIf="authService.isAuthenticated()">
       <button class="btn btn-logout" (click)="logout()">Cerrar sesión</button>

@@ -1,98 +1,70 @@
 .doctor-dashboard {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 2rem auto;
+  background: #0f1724;
+  color: #e6eef8;
   padding: 1.5rem;
-  background: #1e1e2f;
-  color: #fff;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
 
-h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #00c2ff;
-}
+  .hdr {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+    margin-bottom:1rem;
 
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
+    .left h2 { margin:0; color:#7ee7ff; }
+    .subtitle { margin:0.25rem 0 0; color:#bcd9e6; font-size:0.95rem; }
 
-  label {
-    margin-right: 0.5rem;
+    .right {
+      display:flex;
+      gap:0.5rem;
+      button {
+        padding:0.5rem 0.8rem;
+        border-radius:8px;
+        border:none;
+        cursor:pointer;
+        font-weight:600;
+      }
+      .primary { background:#00bcd4; color:#022; }
+      .secondary { background:#1e88e5; color:#fff; }
+    }
   }
 
-  select {
-    padding: 0.3rem 0.5rem;
-    border-radius: 6px;
-    border: none;
-  }
-}
-
-.loading, .empty, .mensaje {
-  text-align: center;
-  margin-top: 1.5rem;
-  font-style: italic;
-}
-
-.appointments-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-  background: #2a2a3d;
-  border-radius: 10px;
-  overflow: hidden;
-
-  th, td {
-    padding: 0.8rem;
-    text-align: left;
+  .summary {
+    display:flex;
+    gap:1rem;
+    margin-bottom:1rem;
+    .card {
+      background:#071125;
+      padding:0.8rem 1rem;
+      border-radius:8px;
+      min-width:130px;
+      text-align:center;
+      .big { font-size:1.8rem; font-weight:800; color:#fff; }
+      .label { font-size:0.9rem; color:#9fb6c6; }
+    }
   }
 
-  th {
-    background: #00c2ff;
-    color: #000;
+  .table {
+    width:100%;
+    border-collapse:collapse;
+    margin:0.5rem 0 1rem;
+    th, td { padding:0.6rem 0.8rem; text-align:left; }
+    th { background:#00c2ff; color:#022; }
+    tr:nth-child(even) { background:#07172a; }
+    .acciones {
+      display:flex;
+      gap:0.4rem;
+      button {
+        padding:0.35rem 0.5rem;
+        border-radius:6px;
+        border:none;
+        cursor:pointer;
+      }
+    }
   }
 
-  tr:nth-child(even) {
-    background: #252537;
-  }
-
-  .acciones {
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  .btn {
-    border: none;
-    border-radius: 6px;
-    padding: 0.4rem 0.8rem;
-    cursor: pointer;
-    color: #fff;
-    font-weight: 600;
-    transition: 0.2s;
-  }
-
-  .btn.iniciar { background: #3498db; }
-  .btn.completar { background: #2ecc71; }
-  .btn.cancelar { background: #e74c3c; }
-  .btn.noasistio { background: #9b59b6; }
-
-  .btn:hover {
-    opacity: 0.85;
-  }
-
-  .badge {
-    padding: 0.2rem 0.5rem;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    text-transform: capitalize;
-
-    &.programada { background: #3498db; }
-    &.en_curso { background: #f1c40f; color: #000; }
-    &.completada { background: #2ecc71; }
-    &.cancelada { background: #e74c3c; }
-    &.no_asistio { background: #9b59b6; }
-  }
+  .loading, .mensaje { text-align:center; margin:1rem 0; }
+  .past-block { margin-top:1rem; }
 }

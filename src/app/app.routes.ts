@@ -18,6 +18,8 @@ import { AdminUsers } from './pages/admin/users/users';
 import { AuthGuard } from './core/guards/auth.guard';
 import { RoleGuard } from './core/guards/role.guard';
 import { AppointmentCreate } from './pages/appointment/appointment';
+import { DoctorSpecialityComponent } from './pages/doctors/speciality/speciality';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'landing/home', pathMatch: 'full' },
@@ -31,7 +33,8 @@ export const routes: Routes = [
   {
     path: 'dashboard/home',
     component: Dashboardhome,
-    canActivate: [AuthGuard]
+    canActivate: [RoleGuard, AuthGuard],
+    data: { roles: ['PACIENTE'] }
   },
 
   // ✅ Editar perfil (usuarios autenticados)
@@ -86,6 +89,12 @@ export const routes: Routes = [
   {
     path: 'doctor/dashboard',
     component: DoctorDashboardComponent,
+    canActivate: [RoleGuard, AuthGuard],
+    data: { roles: ['MEDICO'] }
+  },
+  {
+    path: 'doctor/specialitys',
+    component: DoctorSpecialityComponent,
     canActivate: [RoleGuard, AuthGuard],
     data: { roles: ['MEDICO'] }
   },

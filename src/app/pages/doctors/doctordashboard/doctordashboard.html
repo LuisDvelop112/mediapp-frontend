@@ -1,64 +1,70 @@
 <div class="doctor-dashboard">
+  <header class="hdr">
+    <div class="left">
+      <h2>👨‍⚕️ Panel del Médico</h2>
+      <p class="subtitle" *ngIf="doctor">
+        Dr. {{ doctorNombre }} — {{ doctor.especialidad?.nombreEspecialidad || doctor.especialidad || '' }}
+      </p>
+    </div>
 
-  <h2>👨‍⚕️ Panel del Médico</h2>
+    <div class="right">
+      <button class="primary" routerLink="/doctor/specialitys">✏️ Elegir especialidad</button>
+    </div>
+  </header>
 
-  <div class="controls">
-    <label>Filtrar por estado:</label>
-    <select [(ngModel)]="filtroEstado" (change)="cargarCitas()">
-      <option value="PROGRAMADA">Programadas</option>
-      <option value="COMPLETADA">Completadas</option>
-      <option value="CANCELADA">Canceladas</option>
-      <option value="NO_ASISTIO">No asistieron</option>
-    </select>
-  </div>
+  <section class="summary" *ngIf="!loading">
+    <div class="card">
+      <div class="big">{{ totalPendientes }}</div>
+      <div class="label">Citas pendientes</div>
+    </div>
+    <div class="card">
+      <div class="big">{{ totalCompletadas }}</div>
+      <div class="label">Citas completadas</div>
+    </div>
+  </section>
 
-  <div *ngIf="cargando" class="loading">
-    ⏳ Cargando citas...
-  </div>
+  <div *ngIf="loading" class="loading">⏳ Cargando datos...</div>
+  <div *ngIf="mensaje" class="mensaje">{{ mensaje }}</div>
 
-  <div *ngIf="!cargando && citas.length === 0" class="empty">
-    😕 No hay citas {{ filtroEstado.toLowerCase() }} actualmente.
-  </div>
+  <section *ngIf="!loading">
+    <h3>Próximas citas</h3>
+    <table *ngIf="citasProximas.length > 0" class="table">
+      <thead>
+        <tr>
+          <th>Paciente</th><th>Fecha</th><th>Hora</th><th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of citasProximas">
+          <td>{{ c.paciente?.nombre || c.paciente?.usuario?.nombre }} {{ c.paciente?.apellido || c.paciente?.usuario?.apellido }}</td>
+          <td>{{ c.fechaCita | date:'yyyy-MM-dd' }}</td>
+          <td>{{ c.horaCita }}</td>
+          <td class="acciones">
+            <button (click)="completarCita(c.idCita)">✅ Completar</button>
+            <button (click)="cancelarCita(c.idCita)">❌ Cancelar</button>
+            <button (click)="marcarNoAsistio(c.idCita)">🚫 No asistió</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="citasProximas.length === 0">No hay citas próximas.</p>
+  </section>
 
-  <table *ngIf="!cargando && citas.length > 0" class="appointments-table">
-    <thead>
-      <tr>
-        <th>Paciente</th>
-        <th>Fecha</th>
-        <th>Hora</th>
-        <th>Tipo</th>
-        <th>Motivo</th>
-        <th>Estado</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let cita of citas">
-        <td>{{ cita.paciente?.nombre }} {{ cita.paciente?.apellido }}</td>
-        <td>{{ cita.fechaCita | date: 'yyyy-MM-dd' }}</td>
-        <td>{{ cita.horaCita }}</td>
-        <td>{{ cita.tipoCita }}</td>
-        <td>{{ cita.motivoConsulta }}</td>
-        <td>
-          <span class="badge" [ngClass]="cita.estado?.toLowerCase()">
-            {{ cita.estado }}
-          </span>
-        </td>
-        <td class="acciones">
-          <!-- Acciones solo si la cita está programada -->
-          <button *ngIf="cita.estado === 'PROGRAMADA'" class="btn completar" (click)="cambiarEstado('completar', cita.idCita)">
-            ✅ Completar
-          </button>
-          <button *ngIf="cita.estado === 'PROGRAMADA'" class="btn cancelar" (click)="cambiarEstado('cancelar', cita.idCita)">
-            ❌ Cancelar
-          </button>
-          <button *ngIf="cita.estado === 'PROGRAMADA'" class="btn noasistio" (click)="cambiarEstado('no-asistio', cita.idCita)">
-            🚫 No asistió
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+  <section *ngIf="!loading" class="past-block">
+    <h3>Citas pasadas</h3>
+    <table *ngIf="citasPasadas.length > 0" class="table">
+      <thead>
+        <tr><th>Paciente</th><th>Fecha</th><th>Hora</th><th>Estado</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of citasPasadas">
+          <td>{{ c.paciente?.nombre || c.paciente?.usuario?.nombre }} {{ c.paciente?.apellido || c.paciente?.usuario?.apellido }}</td>
+          <td>{{ c.fechaCita | date:'yyyy-MM-dd' }}</td>
+          <td>{{ c.horaCita }}</td>
+          <td>{{ c.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="citasPasadas.length === 0">No hay citas pasadas.</p>
+  </section>
 </div>

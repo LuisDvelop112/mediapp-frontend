@@ -1,63 +1,85 @@
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-  background: white;
-}
+.specialities-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 
-th, td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
+  h2 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
 
-th {
-  background: #f5f5f5;
-  text-align: left;
-}
+  .actions {
+    text-align: right;
+    margin-bottom: 10px;
 
-.btn-primary {
-  padding: 8px 14px;
-  border-radius: 6px;
-  background: #1e90ff;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
 
-.actions button {
-  margin-right: 6px;
-  cursor: pointer;
-}
+  .new-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
 
-.btn-edit {
-  color: #0095ff;
-}
+    input {
+      flex: 1;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
 
-.btn-delete {
-  color: red;
-}
+    button {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
 
-.top-actions {
-  margin-bottom: 12px;
-}
+  .specialities-table {
+    width: 100%;
+    border-collapse: collapse;
 
-.loader {
-  margin: 20px 0;
-  font-size: 16px;
-}
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
 
-.badge {
-  padding: 5px 8px;
-  border-radius: 6px;
-  font-size: 13px;
-}
+    th {
+      background: #f0f0f0;
+    }
 
-.badge.active {
-  background: #d2f9d4;
-  color: #0f8a00;
-}
+    td.activa { color: green; }
+    td.inactiva { color: red; }
 
-.badge.inactive {
-  background: #ffe0e0;
-  color: #d70000;
+    button {
+      margin: 0 5px;
+      padding: 4px 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .delete {
+      background-color: #dc3545;
+      color: #fff;
+    }
+  }
+
+  .loading, .error, .empty {
+    text-align: center;
+    margin-top: 20px;
+  }
 }

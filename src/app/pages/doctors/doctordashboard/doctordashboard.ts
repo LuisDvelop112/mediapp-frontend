@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppointmentService } from '../../../core/services/appointment.service';
 import { AuthService } from '../../../core/services/auth.service';
@@ -7,103 +8,116 @@ import { AuthService } from '../../../core/services/auth.service';
 @Component({
   selector: 'app-doctor-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './doctordashboard.html',
   styleUrls: ['./doctordashboard.scss']
 })
 export class DoctorDashboardComponent implements OnInit {
 
-  citas: any[] = [];
-  idMedico!: number;
-  cargando = true;
-  filtroEstado = 'PROGRAMADA';
+  doctor: any = null;
+  citasProximas: any[] = [];
+  citasPasadas: any[] = [];
+  totalPendientes = 0;
+  totalCompletadas = 0;
+  loading = true;
   mensaje = '';
 
   constructor(
     private appointmentService: AppointmentService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-    const idUsuario = this.authService.getUserId();
-
-    if (idUsuario) {
-      this.appointmentService.getMedicoByUsuario(idUsuario).subscribe({
-        next: (medico) => {
-          this.idMedico = medico.idMedico;
-          this.cargarCitasPendientes();
-        },
-        error: (err) => {
-          console.error('❌ Error obteniendo médico:', err);
-          this.cargando = false;
-          this.mensaje = 'No se pudo obtener el médico asociado a este usuario.';
-        }
-      });
-    } else {
-      this.mensaje = 'Usuario no autenticado.';
-      this.cargando = false;
-    }
+    this.loadAll();
   }
 
-  cargarCitas(): void {
-    if (!this.idMedico) return;
+  loadAll(): void {
+    this.loading = true;
+    this.mensaje = '';
 
-    this.cargando = true;
-    this.appointmentService.getCitasPorMedicoYEstado(this.idMedico, this.filtroEstado).subscribe({
-      next: (data) => {
-        this.citas = data;
-        this.cargando = false;
+    const userIdRaw = this.authService.getUserId();
+    const userId = userIdRaw ? Number(userIdRaw) : null;
+
+    if (!userId) {
+      this.mensaje = 'Usuario no autenticado';
+      this.loading = false;
+      this.cdr.detectChanges();
+      return;
+    }
+
+    this.appointmentService.getMedicoByUsuario(userId).subscribe({
+      next: (medico) => {
+        this.doctor = medico;
+        this.loadCitasPorMedico(medico.idMedico);
       },
-      error: (err) => {
-        console.error('❌ Error al cargar citas:', err);
-        this.mensaje = 'Error al cargar las citas del médico.';
-        this.cargando = false;
+      error: (err: any) => {
+        console.error('❌ Error obteniendo médico:', err);
+        this.mensaje = 'No se pudo obtener el médico asociado.';
+        this.loading = false;
+        this.cdr.detectChanges();
       }
     });
   }
 
-  cargarCitasPendientes(): void {
-    this.appointmentService.getCitasPorMedicoYEstado(this.idMedico, 'PROGRAMADA')
-      .subscribe({
-        next: (citas) => {
-          this.citas = citas;
-          this.cargando = false;
-        },
-        error: (err) => {
-          console.error('❌ Error cargando citas pendientes:', err);
-          this.mensaje = 'No se pudieron cargar las citas pendientes.';
-          this.cargando = false;
-        }
-      });
-  }
+  loadCitasPorMedico(idMedico: number): void {
+    this.loading = true;
 
-  cambiarEstado(accion: 'completar' | 'cancelar' | 'no-asistio', idCita: number): void {
-    let request$;
+    this.appointmentService.getAppointmentsByDoctor(idMedico).subscribe({
+      next: (citas: any[]) => {
+        this.citasProximas = citas.filter(c => c.estado === 'PROGRAMADA');
+        this.citasPasadas = citas.filter(c =>
+          ['COMPLETADA', 'CANCELADA', 'NO_ASISTIO'].includes(c.estado)
+        );
 
-    switch (accion) {
-      case 'completar':
-        request$ = this.appointmentService.completarCita(idCita);
-        break;
-      case 'cancelar':
-        request$ = this.appointmentService.cancelarCita(idCita);
-        break;
-      case 'no-asistio':
-        request$ = this.appointmentService.marcarNoAsistio(idCita);
-        break;
-    }
+        this.totalPendientes = this.citasProximas.length;
+        this.totalCompletadas = this.citasPasadas.filter(c => c.estado === 'COMPLETADA').length;
 
-    if (!request$) return;
-
-    request$.subscribe({
-      next: () => {
-        this.mensaje = `✅ Cita ${accion.replace('-', ' ')} con éxito.`;
-        this.cargarCitasPendientes();
+        this.loading = false;
+        this.cdr.detectChanges();
       },
-      error: (err) => {
-        console.error(`❌ Error al ${accion.replace('-', ' ')} la cita:`, err);
-        this.mensaje = `❌ Error al ${accion.replace('-', ' ')} la cita.`;
+      error: (err: any) => {
+        console.error('❌ Error cargando citas:', err);
+        this.mensaje = 'No se pudieron cargar las citas.';
+        this.loading = false;
+        this.cdr.detectChanges();
       }
     });
   }
 
+  completarCita(idCita: number): void {
+    this.appointmentService.completarCita(idCita).subscribe({
+      next: () => this.loadAll(),
+      error: (err: any) => {
+        console.error('❌ Error al completar cita:', err);
+        alert('No se pudo completar la cita.');
+      }
+    });
+  }
+
+  cancelarCita(idCita: number): void {
+    this.appointmentService.cancelarCita(idCita).subscribe({
+      next: () => this.loadAll(),
+      error: (err: any) => {
+        console.error('❌ Error al cancelar cita:', err);
+        alert('No se pudo cancelar la cita.');
+      }
+    });
+  }
+
+  marcarNoAsistio(idCita: number): void {
+    this.appointmentService.marcarNoAsistio(idCita).subscribe({
+      next: () => this.loadAll(),
+      error: (err: any) => {
+        console.error('❌ Error al marcar no asistió:', err);
+        alert('No se pudo marcar la cita.');
+      }
+    });
+  }
+
+  get doctorNombre(): string {
+    if (!this.doctor) return '';
+    return `${this.doctor.usuario?.nombre || this.doctor.nombre || ''} ${this.doctor.usuario?.apellido || this.doctor.apellido || ''}`.trim();
+  }
 }

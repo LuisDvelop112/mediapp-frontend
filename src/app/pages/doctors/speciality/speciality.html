@@ -1,0 +1,27 @@
+<div class="speciality-container" *ngIf="!loading">
+  <h2>🩺 Elegir Especialidad</h2>
+
+  <p *ngIf="doctor">
+    Médico: <strong>{{ doctorNombre }}</strong>
+  </p>
+
+  <div class="selector">
+    <label for="especialidad">Selecciona tu especialidad:</label>
+    <select id="especialidad" [(ngModel)]="selectedEspecialidadId">
+      <option [ngValue]="null" disabled>-- Selecciona --</option>
+      <option *ngFor="let esp of especialidades" [ngValue]="esp.idEspecialidad">
+        {{ esp.nombreEspecialidad }}
+      </option>
+    </select>
+  </div>
+
+  <button class="primary" (click)="guardarEspecialidad()">💾 Guardar</button>
+
+  <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+
+  <a routerLink="/doctor/dashboard" class="back">⬅️ Volver al panel</a>
+</div>
+
+<div *ngIf="loading" class="loading">
+  ⏳ Cargando datos...
+</div>

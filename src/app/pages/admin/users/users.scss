@@ -1,66 +1,79 @@
 .admin-users {
-  max-width: 900px;
-  margin: auto;
-  background: #fff;
   padding: 20px;
+  background: #f9f9f9;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 h2 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.top-actions {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-refresh {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #00b894;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-refresh:hover {
+  background: #019870;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   background: white;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th, td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
-}
-
-th {
-  background: #f5f5f5;
   text-align: left;
 }
 
-.top-actions {
-  margin-bottom: 12px;
-  display: flex;
-  justify-content: flex-end;
+th {
+  background: #f3f3f3;
+  font-weight: 600;
 }
 
-.btn-primary {
-  padding: 8px 14px;
-  border-radius: 6px;
-  border: none;
-  background: #007bff;
-  color: white;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s;
-}
-
-.btn-primary:hover {
-  background: #0056b3;
-}
-
-.btn-edit {
-  margin-right: 6px;
-  cursor: pointer;
-  color: #007bff;
+tbody tr:hover {
+  background: #f9f9f9;
 }
 
 .btn-delete {
-  color: #dc3545;
+  background: none;
+  border: none;
   cursor: pointer;
+  color: #ff4d4f;
+  font-size: 18px;
 }
 
-.loader, .empty, .message {
-  margin: 15px 0;
-  text-align: center;
-  color: #555;
+.loader {
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.empty {
+  margin-top: 15px;
+  color: #888;
+  font-style: italic;
+}
+
+.message {
+  margin-top: 15px;
+  font-weight: 500;
+  color: green;
 }

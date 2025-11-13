@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersService } from '../../../core/services/usuario.service';
 
@@ -14,7 +14,7 @@ export class AdminUsers implements OnInit {
   loading = true;
   message = '';
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.loadUsers();
@@ -22,40 +22,40 @@ export class AdminUsers implements OnInit {
 
   loadUsers() {
     this.loading = true;
+    this.message = '';
+
     this.usersService.getAll().subscribe({
-      next: (data: any[]) => {
+      next: (data: any) => {
+        console.log('✅ Pacientes recibidos:', data);
         this.users = data;
         this.loading = false;
+        this.message = `✅ Se cargaron ${data.length} pacientes.`;
+
+        // 👇 fuerza actualización de vista
+        this.cdr.detectChanges();
       },
       error: (err: any) => {
-        console.error('Error cargando pacientes', err);
+        console.error('❌ Error cargando pacientes:', err);
+        this.message = '❌ Error al cargar los pacientes.';
         this.loading = false;
-        this.message = 'Error al cargar la lista de pacientes.';
+        this.cdr.detectChanges();
       }
     });
   }
 
+
   remove(id: number) {
-    if (!confirm('¿Eliminar este usuario?')) return;
+    if (!confirm('¿Eliminar este paciente? Esta acción no se puede deshacer.')) return;
 
     this.usersService.delete(id).subscribe({
       next: () => {
         this.users = this.users.filter(u => u.idPaciente !== id);
-        this.message = '🗑️ Paciente eliminado correctamente.';
+        this.message = '✅ Paciente eliminado correctamente.';
       },
       error: (err) => {
-        console.error('Error eliminando usuario', err);
-        this.message = '❌ No se pudo eliminar el paciente.';
+        console.error('❌ Error al eliminar paciente:', err);
+        this.message = 'Error al eliminar el paciente.';
       }
     });
-  }
-
-  openForm(paciente?: any) {
-    // Aquí luego puedes abrir un modal o navegar a otra ruta de edición
-    if (paciente) {
-      console.log('Editar paciente:', paciente);
-    } else {
-      console.log('Crear nuevo paciente');
-    }
   }
 }

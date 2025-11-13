@@ -1,11 +1,11 @@
 <div class="admin-users">
-  <h2>Usuarios 👥</h2>
-
-  <div *ngIf="loading" class="loader">⏳ Cargando pacientes...</div>
+  <h2>Pacientes registrados 👥</h2>
 
   <div class="top-actions">
-    <button class="btn-primary" (click)="openForm()">➕ Crear Paciente</button>
+    <button class="btn-refresh" (click)="loadUsers()">🔄 Recargar lista</button>
   </div>
+
+  <div *ngIf="loading" class="loader">⏳ Cargando pacientes...</div>
 
   <p *ngIf="!loading && users.length === 0" class="empty">
     😕 No hay pacientes registrados.
@@ -15,10 +15,14 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Nombre</th>
+        <th>Nombre completo</th>
         <th>Email</th>
         <th>Identificación</th>
         <th>Tipo Sangre</th>
+        <th>Teléfono</th>
+        <th>Fecha Nacimiento</th>
+        <th>Dirección</th>
+        <th>Fecha Registro</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -30,8 +34,11 @@
         <td>{{ p.usuario?.email }}</td>
         <td>{{ p.numeroIdentificacion || 'No registrado' }}</td>
         <td>{{ p.tipoSangre || '—' }}</td>
+        <td>{{ p.telefono || '—' }}</td>
+        <td>{{ p.fechaNacimiento ? (p.fechaNacimiento | date:'yyyy-MM-dd') : '—' }}</td>
+        <td>{{ p.direccion || '—' }}</td>
+        <td>{{ p.usuario?.fechaRegistro ? (p.usuario?.fechaRegistro | date:'yyyy-MM-dd') : '—' }}</td>
         <td>
-          <button class="btn-edit" (click)="openForm(p)">✏️</button>
           <button class="btn-delete" (click)="remove(p.idPaciente)">🗑️</button>
         </td>
       </tr>
