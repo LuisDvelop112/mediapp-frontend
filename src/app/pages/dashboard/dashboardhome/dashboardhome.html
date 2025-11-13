@@ -9,33 +9,33 @@
     <div class="card">
       <p class="card-title">Próximas Citas</p>
       <h2 class="number">{{ proximasCitas.length }}</h2>
-      <p class="description">Esta semana</p>
+      <p class="description">Esta semana 📆</p>
     </div>
 
     <div class="card">
       <p class="card-title">Citas Completadas</p>
       <h2 class="number">{{ citasCompletadas }}</h2>
-      <p class="description">Este año</p>
+      <p class="description">Este año ✅</p>
     </div>
 
     <div class="card">
       <p class="card-title">Profesionales</p>
       <h2 class="number">{{ totalProfesionales }}</h2>
-      <p class="description">Diferentes especialistas</p>
+      <p class="description">Diferentes especialistas 🧑‍⚕️</p>
     </div>
 
     <div class="card">
       <p class="card-title">Próxima Cita</p>
       <h2 class="number">{{ siguienteCitaDias }}</h2>
-      <p class="description">Días restantes</p>
+      <p class="description">Días restantes ⏳</p>
     </div>
 
   </div>
 
   <!-- ACCIONES RÁPIDAS -->
   <div class="quick-actions">
-    <button class="btn-primary" routerLink="/appointment/service">
-      + Agendar Nueva Cita
+    <button class="btn-primary" routerLink="/appointment/create">
+  ➕ Agendar Nueva Cita
     </button>
 
     <button class="btn-outline">
@@ -56,7 +56,7 @@
       </div>
 
       <div *ngFor="let cita of proximasCitas" class="appointment">
-        <img src="assets/profile-doctor-1.png" class="doc-img" />
+        <div class="emoji-doc">🧑‍⚕️</div>
 
         <div class="info">
           <h4>Dr. {{ cita.medico?.nombre }} {{ cita.medico?.apellido }}</h4>
@@ -74,7 +74,7 @@
           {{ cita.estado.toLowerCase() }}
         </span>
 
-        <button class="small-btn">Gestionar</button>
+        <button class="small-btn">⚙️ Gestionar</button>
       </div>
 
     </div>
@@ -84,8 +84,8 @@
       <h3>Mi Perfil</h3>
 
       <div class="user-info">
-  <img [src]="userFotoPerfil || 'assets/profile-user.png'" class="user-img" />
-
+        <div class="emoji-user">👤</div>
+        
         <div>
           <h4>{{ userNombre }} {{ userApellido }}</h4>
           <p>{{ userEmail }}</p>
@@ -93,12 +93,12 @@
         </div>
       </div>
 
-  <button class="btn-outline" routerLink="/profile/edit">Editar Perfil</button>
+      <button class="btn-outline" routerLink="/profile/edit">✏️ Editar Perfil</button>
     </div>
 
     <!-- NOTIFICACIONES -->
     <div class="notifications-box">
-      <h3>Notificaciones</h3>
+      <h3>Notificaciones 🔔</h3>
 
       <div *ngFor="let notif of notificaciones" class="notification">
         <span class="dot blue"></span>

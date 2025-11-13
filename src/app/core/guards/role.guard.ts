@@ -9,13 +9,24 @@ export const RoleGuard: CanActivateFn = (route) => {
   const allowedRoles = route.data?.['roles'] as string[];
   const userRole = auth.getRole();
 
-  console.log('Rol permitido:', allowedRoles);
-  console.log('Rol del usuario:', userRole);
+  console.log('🎯 Roles permitidos:', allowedRoles);
+  console.log('👤 Rol del usuario:', userRole);
 
-  if (userRole && allowedRoles.includes(userRole)) {
+  // ✅ Comparación flexible (permite ROLE_ADMIN o ADMIN)
+  const hasAccess =
+    userRole &&
+    allowedRoles.some(
+      (role) =>
+        role === userRole ||
+        role === `ROLE_${userRole}` ||
+        `ROLE_${role}` === userRole
+    );
+
+  if (hasAccess) {
     return true;
   }
 
+  console.warn('🚫 Acceso denegado. Redirigiendo al dashboard.');
   router.navigate(['/dashboard/home']);
   return false;
 };

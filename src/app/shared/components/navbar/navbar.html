@@ -3,8 +3,8 @@
 
     <!-- Marca -->
     <div class="navbar__brand">
-      <a routerLink="/dashboard/home" class="navbar__logo-link">
-        <img src="assets/logo-heart.svg" alt="MediApp Logo" class="navbar__logo" />
+      <a [routerLink]="authService.isAuthenticated() ? '/dashboard/home' : '/landing/home'" class="navbar__logo-link">
+        <span class="navbar__logo">❤️</span>
         <span class="navbar__title">MediApp</span>
       </a>
     </div>
@@ -19,7 +19,7 @@
     </ul>
 
     <!-- Botón cerrar sesión -->
-    <div class="navbar__actions" *ngIf="authService.isLoggedIn()">
+    <div class="navbar__actions" *ngIf="authService.isAuthenticated()">
       <button class="btn btn-logout" (click)="logout()">Cerrar sesión</button>
     </div>
 

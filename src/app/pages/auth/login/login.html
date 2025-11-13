@@ -3,10 +3,14 @@
     <h2>Bienvenido a MediApp</h2>
     <p class="subtitle">Accede a tu cuenta para continuar</p>
 
-    <form (ngSubmit)="login()">
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
       <input type="email" placeholder="Correo Electrónico" [(ngModel)]="email" name="email" required />
       <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required />
-      <button type="submit" class="btn-primary">Entrar</button>
+      <button type="submit" class="btn-primary" [disabled]="loading">
+        {{ loading ? 'Ingresando...' : 'Entrar' }}
+      </button>
+
+      <p class="error-msg" *ngIf="errorMsg">{{ errorMsg }}</p>
     </form>
   </div>
 </div>

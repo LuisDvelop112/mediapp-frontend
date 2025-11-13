@@ -1,29 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
-export class UsuarioService {
-  private apiUrl = 'http://56.125.172.86:8080/api/usuarios';
+@Injectable({
+  providedIn: 'root'
+})
+export class UsersService {
+
+  private api = 'http://localhost:8080/api/pacientes';
 
   constructor(private http: HttpClient) {}
 
-
-  private buildAuthHeaders(): { headers?: HttpHeaders } {
-    const token = localStorage.getItem('token');
-    if (token) {
-      return { headers: new HttpHeaders({ Authorization: `Bearer ${token}` }) };
-    }
-    return {};
+  getAll(): Observable<any[]> {
+    return this.http.get<any[]>(this.api);
   }
 
-  actualizarUsuario(id: number, usuario: any): Observable<any> {
-    const opts = this.buildAuthHeaders();
-    return this.http.put(`${this.apiUrl}/${id}`, usuario, opts);
+  getById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.api}/${id}`);
   }
 
-  obtenerUsuarioPorId(id: number): Observable<any> {
-    const opts = this.buildAuthHeaders();
-    return this.http.get(`${this.apiUrl}/${id}`, opts);
+  create(data: any): Observable<any> {
+    return this.http.post(this.api, data);
+  }
+
+  update(id: number, data: any): Observable<any> {
+    return this.http.put(`${this.api}/${id}`, data);
+  }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.api}/${id}`);
   }
 }

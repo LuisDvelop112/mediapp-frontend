@@ -21,34 +21,6 @@
     flex-direction: column;
     justify-content: space-between;
 
-    .tabs {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-
-      .tab {
-        background: none;
-        border: none;
-        font-weight: 600;
-        font-size: 1rem;
-        color: #6b7280;
-        padding-bottom: 0.5rem;
-        cursor: pointer;
-        border-bottom: 2px solid transparent;
-        transition: 0.3s;
-
-        &.active {
-          color: #0056ff;
-          border-color: #0056ff;
-        }
-
-        &:hover {
-          color: #1e3a8a;
-        }
-      }
-    }
-
     h2 {
       font-size: 1.75rem;
       font-weight: 700;

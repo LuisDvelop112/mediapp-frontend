@@ -18,21 +18,25 @@ export class Dashboardhome implements OnInit {
   userEmail = localStorage.getItem('user_email') || '';
   userFotoPerfil = localStorage.getItem('user_fotoPerfil') || '';
 
+  
   proximasCitas: any[] = [];
   citasCompletadas = 0;
   totalProfesionales = 0;
   siguienteCitaDias = '-';
   notificaciones: any[] = [];
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(private dashboardService: DashboardService) { }
 
   ngOnInit(): void {
     this.cargarDatosDashboard();
   }
 
   cargarDatosDashboard() {
+    console.log('Cargando datos del dashboard para el usuario ID:', this.userId);
+    console.log('Nombre:', this.userNombre, this.userApellido);
+    
     // ✅ Próximas citas
-    this.dashboardService.getProximasCitas(this.userId).subscribe(res => {
+    this.dashboardService.getProximasCitas().subscribe(res => {
       this.proximasCitas = res;
 
       if (res.length > 0) {
@@ -44,17 +48,17 @@ export class Dashboardhome implements OnInit {
     });
 
     // ✅ Citas completadas
-    this.dashboardService.getCitasCompletadas(this.userId).subscribe(res => {
+    this.dashboardService.getCitasCompletadas().subscribe(res => {
       this.citasCompletadas = res;
     });
 
     // ✅ Total de profesionales
-    this.dashboardService.getTotalProfesionales(this.userId).subscribe(res => {
+    this.dashboardService.getTotalProfesionales().subscribe(res => {
       this.totalProfesionales = res;
     });
 
     // ✅ Notificaciones
-    this.dashboardService.getNotificaciones(this.userId).subscribe(res => {
+    this.dashboardService.getNotificaciones().subscribe(res => {
       this.notificaciones = res;
     });
   }

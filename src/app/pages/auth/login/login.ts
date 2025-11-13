@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 
@@ -10,55 +9,53 @@ import { AuthService } from '../../../core/services/auth.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './login.html',
-  styleUrl: './login.scss'
+  styleUrls: ['./login.scss']
 })
 export class Login {
   email: string = '';
   password: string = '';
+  loading: boolean = false;
+  errorMsg: string = '';
 
   constructor(
-    private http: HttpClient,
-    private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
-  login() {
-    const body = {
-      email: this.email,
-      contraseña: this.password
-    };
+  login(form: NgForm) {
+    if (form.invalid) {
+      this.errorMsg = 'Por favor, completa todos los campos.';
+      return;
+    }
 
-  this.http.post<any>('http://56.125.172.86:8080/api/auth/login', body)
-      .subscribe({
-        next: (res) => {
+    this.loading = true;
+    this.errorMsg = '';
 
-          // ✅ Guardar datos importantes para RoleGuard y toda la app
-          this.authService.login(
-            res.token,
-            res.tipoUsuario
-          );
+    // El AuthService se encarga de hacer la llamada al backend y guardar el token
+    this.authService.login({ email: this.email, password: this.password }).subscribe({
+      next: (success) => {
+        this.loading = false;
 
-          // ✅ Guardar datos adicionales del usuario
-          localStorage.setItem('user_id', res.idUsuario);
-          localStorage.setItem('user_email', res.email);
-          localStorage.setItem('user_nombre', res.nombre);
-          localStorage.setItem('user_apellido', res.apellido);
-          localStorage.setItem('refresh_token', res.refreshToken);
+        if (success) {
+          // ✅ Obtiene el rol para redirigir al dashboard correspondiente
+          const role = this.authService.getRole();
 
-          // ✅ Redirigir según rol
-          if (res.tipoUsuario === 'PACIENTE') {
+          if (role === 'ADMIN') {
+            this.router.navigate(['/admin/home']);
+          } else if (role === 'PACIENTE') {
             this.router.navigate(['/dashboard/home']);
-          } else if (res.tipoUsuario === 'MEDICO') {
-            this.router.navigate(['/dashboard/home']);
-          } else if (res.tipoUsuario === 'ADMIN') {
-            this.router.navigate(['/dashboard/home']);
+          } else if (role === 'MEDICO') {
+            this.router.navigate(['/doctor/dashboard']);
           }
-        },
-
-        error: (error) => {
-          console.error('❌ Error al iniciar sesión >>>', error);
-          alert('Correo o contraseña incorrectos');
+        } else {
+          this.errorMsg = 'Credenciales inválidas. Intenta nuevamente.';
         }
-      });
+      },
+      error: (err) => {
+        console.error('❌ Error al iniciar sesión:', err);
+        this.loading = false;
+        this.errorMsg = 'Ocurrió un error en el servidor.';
+      }
+    });
   }
 }

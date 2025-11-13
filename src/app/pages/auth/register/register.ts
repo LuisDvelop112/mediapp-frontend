@@ -50,7 +50,7 @@ export class Register {
     this.http.post('http://localhost:8080/api/auth/register', payload).subscribe({
       next: () => {
         alert('✅ Registro exitoso');
-        this.router.navigate(['/login']); // <-- Redirige al login
+        this.router.navigate(['landing/home']); // <-- Redirige al login
       },
       error: (err) => {
         console.error(err);
