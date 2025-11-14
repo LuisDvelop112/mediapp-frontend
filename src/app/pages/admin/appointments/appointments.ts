@@ -32,7 +32,7 @@ export class AdminAppointments implements OnInit {
     console.log('📡 Cargando todas las citas...');
 
     // Llamada directa al endpoint global de citas
-    this.appointmentService['http'].get<Appointment[]>('http://localhost:8080/api/citas').subscribe({
+    this.appointmentService['http'].get<Appointment[]>('https://backendmedia-app-production.up.railway.app/api/citas').subscribe({
       next: (data) => {
         console.log('✅ Citas obtenidas:', data);
         this.appointments = data;
