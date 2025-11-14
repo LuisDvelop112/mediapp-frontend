@@ -58,6 +58,7 @@ export class AppointmentCreate implements OnInit {
   }
 
   cargarMedicos() {
+    console.log("ID Usuario Logueado:", this.authService.getUserId());
     this.doctorsService.getAllDoctors().subscribe({
       next: (data) => {
         this.medicos = data;
