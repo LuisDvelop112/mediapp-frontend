@@ -6,14 +6,14 @@
     <div class="photo-section">
       <label class="photo-label">
         <img 
-          [src]="formData.usuario?.fotoPerfil || 'assets/profile-user.png'" 
+          [src]="formData?.usuario?.fotoPerfil || 'assets/profile-user.png'" 
           class="profile-photo"
         />
       </label>
 
       <input 
         type="url" 
-        [(ngModel)]="formData.usuario.fotoPerfil" 
+        [(ngModel)]="formData.usuario?.fotoPerfil" 
         name="fotoPerfil" 
         placeholder="Pega la URL de tu foto de perfil"
         class="input-url"
@@ -28,7 +28,7 @@
         <label>Nombre</label>
         <input 
           type="text"
-          [(ngModel)]="formData.usuario.nombre"
+          [(ngModel)]="formData.usuario?.nombre"
           name="nombre"
           required
         />
@@ -38,7 +38,7 @@
         <label>Apellido</label>
         <input 
           type="text"
-          [(ngModel)]="formData.usuario.apellido"
+          [(ngModel)]="formData.usuario?.apellido"
           name="apellido"
           required
         />
@@ -48,7 +48,7 @@
         <label>Email</label>
         <input 
           type="email"
-          [(ngModel)]="formData.usuario.email"
+          [(ngModel)]="formData.usuario?.email"
           name="email"
           required
         />
@@ -58,7 +58,7 @@
         <label>Contraseña</label>
         <input 
           type="password"
-          [(ngModel)]="formData.usuario.contrasena"
+          [(ngModel)]="formData.usuario?.contrasena"
           name="contrasena"
           placeholder="Deja en blanco si no deseas cambiarla"
         />
@@ -69,7 +69,7 @@
         <label>Teléfono</label>
         <input 
           type="tel"
-          [(ngModel)]="formData.usuario.telefono"
+          [(ngModel)]="formData.usuario?.telefono"
           name="telefono"
         />
       </div>
@@ -78,7 +78,7 @@
         <label>Dirección</label>
         <input 
           type="text"
-          [(ngModel)]="formData.usuario.direccion"
+          [(ngModel)]="formData.usuario?.direccion"
           name="direccion"
         />
       </div>
@@ -87,7 +87,7 @@
         <label>Número de identificación</label>
         <input 
           type="text"
-          [(ngModel)]="formData.numeroIdentificacion"
+          [(ngModel)]="formData?.numeroIdentificacion"
           name="numeroIdentificacion"
         />
       </div>
@@ -96,7 +96,7 @@
         <label>Tipo de sangre</label>
         <input 
           type="text"
-          [(ngModel)]="formData.tipoSangre"
+          [(ngModel)]="formData?.tipoSangre"
           name="tipoSangre"
         />
       </div>
@@ -105,7 +105,7 @@
         <label>Contacto de emergencia</label>
         <input 
           type="text"
-          [(ngModel)]="formData.contactoEmergencia"
+          [(ngModel)]="formData?.contactoEmergencia"
           name="contactoEmergencia"
         />
       </div>
@@ -114,7 +114,7 @@
         <label>Teléfono emergencia</label>
         <input 
           type="text"
-          [(ngModel)]="formData.telefonoEmergencia"
+          [(ngModel)]="formData?.telefonoEmergencia"
           name="telefonoEmergencia"
         />
       </div>
@@ -123,7 +123,7 @@
         <label>Alergias</label>
         <input 
           type="text"
-          [(ngModel)]="formData.alergias"
+          [(ngModel)]="formData?.alergias"
           name="alergias"
         />
       </div>
@@ -132,7 +132,7 @@
         <label>Enfermedades crónicas</label>
         <input 
           type="text"
-          [(ngModel)]="formData.enfermedadesCronicas"
+          [(ngModel)]="formData?.enfermedadesCronicas"
           name="enfermedadesCronicas"
         />
       </div>
@@ -141,7 +141,7 @@
         <label>Medicamentos actuales</label>
         <input 
           type="text"
-          [(ngModel)]="formData.medicamentosActuales"
+          [(ngModel)]="formData?.medicamentosActuales"
           name="medicamentosActuales"
         />
       </div>

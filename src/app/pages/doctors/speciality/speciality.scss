@@ -1,62 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+$primary: #2563EB;
+$primary-dark: #1D4ED8;
+$secondary-bg: #EFF6FF;
+$text: #111827;
+$text-secondary: #374151;
+$bg: #FFFFFF;
+$border: #E5E7EB;
+$shadow: rgba(0, 0, 0, 0.05);
+$radius: 8px;
+$transition: 0.2s ease-in-out;
+
 .speciality-container {
   max-width: 500px;
   margin: 40px auto;
-  background: #fff;
-  border-radius: 12px;
+  background: $bg;
+  border-radius: $radius;
   padding: 24px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px $shadow;
+  font-family: 'Inter', sans-serif;
+  color: $text;
 
   h2 {
     text-align: center;
     margin-bottom: 20px;
+    font-weight: 700;
   }
 
+  /* SELECTOR */
   .selector {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     margin: 20px 0;
 
     select {
       padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+      border-radius: $radius;
+      border: 1px solid $border;
+      background: $bg;
       font-size: 16px;
+      transition: border $transition;
+
+      &:focus {
+        border-color: $primary;
+        outline: none;
+        background: $secondary-bg;
+      }
     }
   }
 
+  /* BOTÓN PRIMARIO */
   button.primary {
     width: 100%;
     padding: 10px;
     border: none;
-    border-radius: 8px;
-    background-color: #1976d2;
+    border-radius: $radius;
+    background-color: $primary;
     color: white;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
+    transition: background $transition;
 
     &:hover {
-      background-color: #145a9c;
+      background-color: $primary-dark;
     }
   }
 
+  /* MENSAJE */
   .mensaje {
     margin-top: 10px;
     color: red;
     text-align: center;
+    font-weight: 500;
   }
 
+  /* VOLVER */
   .back {
     display: block;
     text-align: center;
     margin-top: 20px;
     text-decoration: none;
-    color: #1976d2;
+    color: $primary;
+    font-weight: 500;
+    transition: color $transition;
+
+    &:hover {
+      color: $primary-dark;
+      text-decoration: underline;
+    }
   }
 }
 
+/* LOADING */
 .loading {
   text-align: center;
   margin-top: 40px;
   font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  color: $text-secondary;
 }

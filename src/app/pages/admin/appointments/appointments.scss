@@ -1,8 +1,10 @@
 .admin-appointments-container {
   padding: 1.5rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: #FFFFFF; // fondo-general
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); // sombra-suave
+  font-family: 'Inter', sans-serif;
+  color: #111827; // texto-principal
 
   .header {
     display: flex;
@@ -12,37 +14,50 @@
 
     .titulo {
       font-size: 1.6rem;
-      font-weight: bold;
+      font-weight: 600;
       margin: 0;
+      letter-spacing: -0.01rem;
+      color: #111827; // texto-principal
     }
 
     .btn-refresh {
-      background: #3498db;
-      color: white;
+      background: #2563EB; // primario
+      color: #FFFFFF;
       border: none;
-      border-radius: 6px;
-      padding: 8px 12px;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
       font-size: 0.9rem;
+      font-weight: 500;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s ease-in-out, transform 0.1s;
+
       &:hover {
-        background: #2980b9;
+        background: #1D4ED8; // primario-hover
       }
+
+      &:active {
+        transform: scale(0.97);
+      }
+
       &:disabled {
-        background: #95a5a6;
+        background: #E5E7EB; // borde-suave
+        color: #374151; // texto-secundario
         cursor: not-allowed;
       }
     }
   }
 
-  .loading, .error, .sin-citas {
+  .loading,
+  .error,
+  .sin-citas {
     text-align: center;
     margin: 1rem 0;
     font-weight: 500;
+    color: #374151; // texto-secundario
   }
 
   .error {
-    color: #d9534f;
+    color: #e11d48; // error moderno, similar a shadcn/ui danger
   }
 
   .tabla-citas {
@@ -50,31 +65,55 @@
     border-collapse: collapse;
 
     th, td {
-      padding: 10px;
-      border-bottom: 1px solid #eee;
+      padding: 12px;
+      border-bottom: 1px solid #E5E7EB; // borde-suave
       text-align: left;
+      font-size: 0.95rem;
     }
 
     th {
-      background: #f5f5f5;
+      background: #EFF6FF; // secundario-fondo
+      font-weight: 600;
+      color: #374151; // texto-secundario
+    }
+
+    tr:hover {
+      background: #F9FAFB; // ligero hover moderno
+      transition: 0.2s ease-in-out;
     }
 
     .btn-eliminar {
-      background: #e74c3c;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 5px 10px;
+      background: transparent;
+      border: 1px solid #e11d48;
+      color: #e11d48;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: 0.2s ease-in-out;
 
       &:hover {
-        background: #c0392b;
+        background: #FEF2F2;
+        border-color: #be123c;
+        color: #be123c;
       }
     }
 
-    .estado-programada { color: #3498db; font-weight: 600; }
-    .estado-completada { color: #2ecc71; font-weight: 600; }
-    .estado-cancelada { color: #e74c3c; font-weight: 600; }
+    // Estados de citas al estilo MediApp
+    .estado-programada { 
+      color: #2563EB; // primario
+      font-weight: 600; 
+    }
+
+    .estado-completada { 
+      color: #16a34a; // verde moderno MediApp
+      font-weight: 600; 
+    }
+
+    .estado-cancelada { 
+      color: #e11d48; // rojo moderno
+      font-weight: 600; 
+    }
   }
 }

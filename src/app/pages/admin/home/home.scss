@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+// Variables MediApp
 $primary: #2563EB;
 $primary-dark: #1D4ED8;
 $secondary-bg: #EFF6FF;
@@ -17,31 +18,42 @@ $transition: 0.2s ease-in-out;
   font-family: 'Inter', sans-serif;
   color: $text;
 
+  // ------------------------------
+  // TITULOS
+  // ------------------------------
   .home-title {
-    font-size: 1.75rem;
+    font-size: 1.9rem;
     font-weight: 700;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01rem;
   }
 
   .home-subtitle {
-    color: $text-secondary;
+    font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 2rem;
+    color: $text-secondary;
+    margin-bottom: 2.2rem;
   }
 
+  // ------------------------------
+  // GRID CONTENIDO
+  // ------------------------------
   .home-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.75rem;
     justify-items: center;
   }
 
+  // ------------------------------
+  // TARJETAS
+  // ------------------------------
   .home-card {
     background: $bg;
     border: 1px solid $border;
     border-radius: $radius;
     box-shadow: 0 4px 16px $shadow;
-    padding: 2rem 1rem;
+    padding: 2rem 1.25rem;
     text-align: center;
     color: $text;
     cursor: pointer;
@@ -51,25 +63,32 @@ $transition: 0.2s ease-in-out;
 
     &:hover {
       background: $secondary-bg;
-      box-shadow: 0 6px 24px $shadow;
-      transform: translateY(-4px);
+      box-shadow: 0 6px 26px $shadow;
+      transform: translateY(-5px);
     }
 
     .icon {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: $primary;
-      margin-bottom: 1rem;
+      margin-bottom: 1.1rem;
+      transition: transform $transition;
+
+      .home-card:hover & {
+        transform: scale(1.05);
+      }
     }
 
     h3 {
       font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+      color: $text;
     }
 
     p {
       color: $text-secondary;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
+      line-height: 1.4;
       margin: 0;
     }
   }

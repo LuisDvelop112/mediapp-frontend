@@ -1,70 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+$primary: #2563EB;
+$primary-dark: #1D4ED8;
+$secondary-bg: #EFF6FF;
+$text: #111827;
+$text-secondary: #374151;
+$bg: #FFFFFF;
+$border: #E5E7EB;
+$shadow: rgba(0, 0, 0, 0.05);
+$radius: 8px;
+$transition: 0.2s ease-in-out;
+
 .doctor-dashboard {
   max-width: 1100px;
   margin: 2rem auto;
-  background: #0f1724;
-  color: #e6eef8;
+  background: $bg;
+  color: $text;
   padding: 1.5rem;
-  border-radius: 12px;
+  border-radius: $radius;
+  box-shadow: 0 4px 16px $shadow;
+  font-family: 'Inter', sans-serif;
 
+  /* HEADER */
   .hdr {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:1rem;
-    margin-bottom:1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
 
-    .left h2 { margin:0; color:#7ee7ff; }
-    .subtitle { margin:0.25rem 0 0; color:#bcd9e6; font-size:0.95rem; }
+    .left {
+      h2 {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: $text;
+      }
+      .subtitle {
+        margin: 0.25rem 0 0;
+        color: $text-secondary;
+        font-size: 0.95rem;
+      }
+    }
 
     .right {
-      display:flex;
-      gap:0.5rem;
+      display: flex;
+      gap: 0.5rem;
+
       button {
-        padding:0.5rem 0.8rem;
-        border-radius:8px;
-        border:none;
-        cursor:pointer;
-        font-weight:600;
+        padding: 0.5rem 0.9rem;
+        border-radius: $radius;
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background $transition, border $transition;
       }
-      .primary { background:#00bcd4; color:#022; }
-      .secondary { background:#1e88e5; color:#fff; }
+
+      .primary {
+        background: $primary;
+        color: white;
+        &:hover { background: $primary-dark; }
+      }
+
+      .secondary {
+        background: transparent;
+        border: 1px solid $primary;
+        color: $primary;
+        &:hover { background: $secondary-bg; }
+      }
     }
   }
 
+  /* SUMMARY CARDS */
   .summary {
-    display:flex;
-    gap:1rem;
-    margin-bottom:1rem;
-    .card {
-      background:#071125;
-      padding:0.8rem 1rem;
-      border-radius:8px;
-      min-width:130px;
-      text-align:center;
-      .big { font-size:1.8rem; font-weight:800; color:#fff; }
-      .label { font-size:0.9rem; color:#9fb6c6; }
-    }
-  }
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
 
-  .table {
-    width:100%;
-    border-collapse:collapse;
-    margin:0.5rem 0 1rem;
-    th, td { padding:0.6rem 0.8rem; text-align:left; }
-    th { background:#00c2ff; color:#022; }
-    tr:nth-child(even) { background:#07172a; }
-    .acciones {
-      display:flex;
-      gap:0.4rem;
-      button {
-        padding:0.35rem 0.5rem;
-        border-radius:6px;
-        border:none;
-        cursor:pointer;
+    .card {
+      background: $bg;
+      border: 1px solid $border;
+      padding: 1rem;
+      border-radius: $radius;
+      text-align: center;
+      flex: 1;
+      box-shadow: 0 2px 8px $shadow;
+
+      .big {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: $primary;
+      }
+      .label {
+        font-size: 0.9rem;
+        color: $text-secondary;
       }
     }
   }
 
-  .loading, .mensaje { text-align:center; margin:1rem 0; }
-  .past-block { margin-top:1rem; }
+  /* TABLE */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1rem;
+
+    th,
+    td {
+      padding: 0.75rem 0.9rem;
+      text-align: left;
+      border-bottom: 1px solid $border;
+    }
+
+    th {
+      background: $secondary-bg;
+      color: $text;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background: $secondary-bg;
+    }
+
+    .acciones {
+      display: flex;
+      gap: 0.4rem;
+
+      button {
+        padding: 0.35rem 0.6rem;
+        border-radius: $radius;
+        border: 1px solid $primary;
+        background: transparent;
+        color: $primary;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background $transition;
+
+        &:hover {
+          background: $secondary-bg;
+        }
+      }
+    }
+  }
+
+  /* STATES */
+  .loading,
+  .mensaje {
+    text-align: center;
+    margin: 1rem 0;
+    color: $text-secondary;
+  }
+
+  .past-block {
+    margin-top: 1rem;
+  }
 }

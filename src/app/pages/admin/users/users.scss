@@ -1,79 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+$primary: #2563EB;
+$primary-dark: #1D4ED8;
+$secondary-bg: #EFF6FF;
+$text: #111827;
+$text-secondary: #374151;
+$bg: #FFFFFF;
+$border: #E5E7EB;
+$shadow: rgba(0, 0, 0, 0.05);
+$radius: 8px;
+$transition: 0.2s ease-in-out;
+
 .admin-users {
   padding: 20px;
-  background: #f9f9f9;
-  border-radius: 12px;
+  background: $bg;
+  border-radius: $radius;
+  box-shadow: 0 4px 16px $shadow;
+  font-family: 'Inter', sans-serif;
+  color: $text;
 }
 
 h2 {
   margin-bottom: 15px;
-  color: #333;
+  color: $text;
+  font-weight: 700;
 }
 
 .top-actions {
   margin-bottom: 10px;
   display: flex;
   justify-content: flex-end;
-}
 
-.btn-refresh {
-  padding: 8px 14px;
-  border-radius: 6px;
-  border: none;
-  background: #00b894;
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+  .btn-refresh {
+    padding: 8px 14px;
+    border-radius: $radius;
+    border: 1px solid $primary;
+    background: $primary;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background $transition;
 
-.btn-refresh:hover {
-  background: #019870;
+    &:hover {
+      background: $primary-dark;
+    }
+  }
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  border-radius: 8px;
+  background: $bg;
+  border-radius: $radius;
+  box-shadow: 0 2px 8px $shadow;
   overflow: hidden;
-}
 
-th, td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
-}
+  th, td {
+    padding: 12px;
+    border-bottom: 1px solid $border;
+    text-align: left;
+    font-size: 0.95rem;
+  }
 
-th {
-  background: #f3f3f3;
-  font-weight: 600;
-}
+  th {
+    background: $secondary-bg;
+    color: $text;
+    font-weight: 600;
+  }
 
-tbody tr:hover {
-  background: #f9f9f9;
+  tbody tr:hover {
+    background: $secondary-bg;
+  }
 }
 
 .btn-delete {
-  background: none;
+  background: transparent;
   border: none;
   cursor: pointer;
-  color: #ff4d4f;
+  color: #dc2626; // rojo suave
   font-size: 18px;
+  transition: opacity $transition;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 .loader {
   margin: 20px 0;
   font-size: 16px;
+  color: $text-secondary;
+  text-align: center;
 }
 
 .empty {
   margin-top: 15px;
-  color: #888;
+  color: $text-secondary;
   font-style: italic;
+  text-align: center;
 }
 
 .message {
   margin-top: 15px;
-  font-weight: 500;
-  color: green;
+  font-weight: 600;
+  color: #16a34a; // verde validación estilo MediApp
+  text-align: center;
 }
