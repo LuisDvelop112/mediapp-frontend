@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EditarPerfilService, Paciente } from '../../core/services/editarperfil.service';
+import { EditarPerfilService, Usuario } from '../../core/services/editarperfil.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -13,29 +13,22 @@ import { EditarPerfilService, Paciente } from '../../core/services/editarperfil.
 })
 export class EditProfile implements OnInit {
 
-  formData: Paciente = {
-    idPaciente: 0,
-    usuario: {
-      idUsuario: 0,
-      nombre: '',
-      apellido: '',
-      email: '',
-      contrasena: '',
-      telefono: '',
-      direccion: '',
-      fotoPerfil: ''
-    },
-    numeroIdentificacion: '',
-    tipoSangre: '',
-    contactoEmergencia: '',
-    telefonoEmergencia: '',
-    alergias: '',
-    enfermedadesCronicas: '',
-    medicamentosActuales: ''
+  formData: Usuario = {
+    idUsuario: 0,
+    nombre: '',
+    apellido: '',
+    email: '',
+    telefono: '',
+    direccion: '',
+    pais: '',
+    ciudad: '',
+    genero: '',
+    fechaNacimiento: '',
+    fotoPerfil: '',
+    contrasenia: ''
   };
 
-  userId = localStorage.getItem('user_id');
-  pacienteId: number | null = null;
+  userId = Number(localStorage.getItem('user_id'));
 
   constructor(
     private router: Router,
@@ -49,37 +42,47 @@ export class EditProfile implements OnInit {
       return;
     }
 
-    this.editarPerfilService.obtenerPaciente(Number(this.userId))
-      .subscribe({
-        next: (paciente) => {
-          this.pacienteId = paciente.idPaciente;
-          this.formData = paciente;
-        },
-        error: (err: any) => {
-          console.error('Error cargando paciente:', err);
-          alert('No se pudo cargar el perfil del paciente');
-          this.router.navigate(['/dashboard/home']);
-        }
-      });
+    this.editarPerfilService.obtenerUsuario(this.userId).subscribe({
+      next: (usuario) => {
+        this.formData = { ...usuario, contrasenia: '' }; // nunca mostrar contraseña
+      },
+      error: (err) => {
+        console.error('Error cargando usuario:', err);
+        alert('No se pudo cargar el perfil');
+        this.router.navigate(['/dashboard/home']);
+      }
+    });
   }
 
   handleSave() {
-    if (!this.pacienteId) {
-      alert('No se encontró el ID del paciente.');
+    if (!this.formData) {
+      alert("Error inesperado: faltan datos.");
       return;
     }
 
-    this.editarPerfilService.actualizarPaciente(this.pacienteId, this.formData)
-      .subscribe({
-        next: () => {
-          alert('Perfil de paciente actualizado correctamente');
-          this.router.navigate(['/dashboard/home']);
-        },
-        error: (err: any) => {
-          console.error(err);
-          alert('Error al actualizar el perfil de paciente.');
-        }
-      });
+    const data: Partial<Usuario> = { ...this.formData };
+
+    // Si no escribe contraseña, no se actualiza
+    if (!data.contrasenia || data.contrasenia.trim() === '') {
+      delete data.contrasenia;
+    }
+
+    this.editarPerfilService.actualizarUsuario(this.userId, data).subscribe({
+      next: (res) => {
+        // Actualizar datos en localStorage si aplica
+        localStorage.setItem('user_nombre', res.nombre ?? '');
+        localStorage.setItem('user_apellido', res.apellido ?? '');
+        localStorage.setItem('user_email', res.email ?? '');
+        localStorage.setItem('user_fotoPerfil', res.fotoPerfil ?? '');
+
+        alert('Perfil actualizado correctamente');
+        this.router.navigate(['/dashboard/home']);
+      },
+      error: (err) => {
+        console.error(err);
+        alert('Error al actualizar el perfil');
+      }
+    });
   }
 
   handleCancel() {

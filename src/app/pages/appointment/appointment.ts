@@ -115,11 +115,16 @@ export class AppointmentCreate implements OnInit {
     this.appointmentService.createAppointmentAuto(payload).subscribe({
       next: () => {
         this.mensaje = '✅ Cita agendada correctamente.';
+
+        // 🔥 NUEVO — mensaje emergente
+        alert('✅ ¡Tu cita ha sido agendada con éxito!');
+
         this.resetForm();
       },
       error: (err) => {
         console.error('❌ Error al crear cita:', err);
         this.mensaje = '❌ Error al agendar la cita.';
+        alert('❌ Ocurrió un error al agendar la cita. Inténtalo nuevamente.');
       }
     });
   }

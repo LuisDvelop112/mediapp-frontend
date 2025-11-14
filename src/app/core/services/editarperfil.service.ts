@@ -2,17 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-// Tipo del Paciente basado en tu entidad de backend
-export type Paciente = {
-  idPaciente: number;
-  usuario: any; // puedes tiparlo después si quieres
-  numeroIdentificacion?: string;
-  tipoSangre?: string;
-  alergias?: string;
-  enfermedadesCronicas?: string;
-  medicamentosActuales?: string;
-  contactoEmergencia?: string;
-  telefonoEmergencia?: string;
+// ---------------------
+// TIPOS
+// ---------------------
+export type Usuario = {
+  idUsuario: number;
+  nombre: string;
+  apellido: string;
+  email: string;
+  telefono?: string;
+  fotoPerfil?: string;
+  direccion?: string;
+  pais?: string;
+  ciudad?: string;
+  genero?: string;
+  fechaNacimiento?: string;
+  contrasenia?: string;
 };
 
 @Injectable({
@@ -20,17 +25,15 @@ export type Paciente = {
 })
 export class EditarPerfilService {
 
-  private api = 'https://backendmedia-app-production.up.railway.app/api/pacientes';
+  private apiUsuarios = 'https://backendmedia-app-production.up.railway.app/api/usuarios';
 
   constructor(private http: HttpClient) {}
 
-  // ✅ 1. Obtener información del paciente por ID
-  obtenerPaciente(id: number): Observable<Paciente> {
-    return this.http.get<Paciente>(`${this.api}/${id}`);
+  obtenerUsuario(idUsuario: number): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUsuarios}/${idUsuario}`);
   }
 
-  // ✅ 2. Actualizar información del paciente
-  actualizarPaciente(id: number, data: Partial<Paciente>): Observable<Paciente> {
-    return this.http.put<Paciente>(`${this.api}/${id}`, data);
+  actualizarUsuario(idUsuario: number, data: Partial<Usuario>): Observable<Usuario> {
+    return this.http.put<Usuario>(`${this.apiUsuarios}/${idUsuario}`, data);
   }
 }

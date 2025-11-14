@@ -1,141 +1,121 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-$primary: #2563EB;
-$primary-dark: #1D4ED8;
-$secondary-bg: #EFF6FF;
-$text: #111827;
-$text-secondary: #374151;
-$bg: #FFFFFF;
-$border: #E5E7EB;
-$shadow: rgba(0, 0, 0, 0.05);
-$radius: 8px;
-$transition: 0.2s ease-in-out;
-
 .edit-profile-container {
-  max-width: 500px;
-  margin: 2rem auto;
-  background: $bg;
-  border-radius: $radius;
-  box-shadow: 0 4px 16px $shadow;
-  padding: 2rem;
   font-family: 'Inter', sans-serif;
-  color: $text;
+  background: #FFFFFF;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 
   h2 {
-    text-align: center;
+    color: #111827;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.01rem;
     margin-bottom: 1.5rem;
-    font-weight: 700;
+    text-align: center;
   }
 
-  /* FOTO */
-  .photo-section {
+  form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 1.5rem;
-
-    .photo-label {
-      position: relative;
-      display: inline-block;
-      cursor: pointer;
-
-      .profile-photo {
-        width: 110px;
-        height: 110px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid $primary;
-      }
-
-      .camera-icon {
-        position: absolute;
-        bottom: 8px;
-        right: 8px;
-        background: $primary;
-        color: #fff;
-        border-radius: 50%;
-        padding: 0.4rem;
-        font-size: 1.2rem;
-        cursor: pointer;
-      }
-    }
-
-    .photo-hint {
-      font-size: 0.9rem;
-      color: $text-secondary;
-      margin-top: 0.5rem;
-    }
+    gap: 1.2rem;
   }
 
-  /* GRID FORM */
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-
-    .col-span-2 {
-      grid-column: span 2;
-    }
-  }
-
-  label {
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-    display: block;
-    color: $text;
-  }
-
-  input {
-    width: 100%;
-    padding: 0.55rem 0.7rem;
-    border: 1px solid $border;
-    border-radius: $radius;
-    font-size: 1rem;
-    transition: border $transition, background $transition;
-
-    &:focus {
-      border-color: $primary;
-      background: $secondary-bg;
-      outline: none;
-    }
-  }
-
-  /* ACCIONES */
-  .actions {
+  .form-row {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    label {
+      color: #374151;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    input,
+    select {
+      padding: 0.7rem 0.9rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #E5E7EB;
+      background: #FFFFFF;
+      color: #111827;
+      letter-spacing: -0.01rem;
+      transition: border-color 0.2s ease-in-out, background 0.2s ease-in-out;
+
+      &:focus {
+        border-color: #2563EB;
+        background: #EFF6FF;
+        outline: none;
+      }
+    }
+  }
+
+  .btn-primary {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: #2563EB;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+    &:hover {
+      background: #1D4ED8;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+  .btn-secondary {
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+    background: #E5E7EB;
+    color: #374151;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+    &:hover {
+      background: #D1D5DB;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  /* 📱 Responsive */
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    .form-row input,
+    .form-row select {
+      font-size: 0.95rem;
+      padding: 0.65rem;
+    }
 
     .btn-primary {
-      background: $primary;
-      color: #fff;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: $radius;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background $transition;
-
-      &:hover {
-        background: $primary-dark;
-      }
+      padding: 0.75rem;
+      font-size: 0.95rem;
     }
 
-    .btn-outline {
-      background: transparent;
-      color: $primary;
-      border: 1.5px solid $primary;
-      padding: 0.7rem 1.5rem;
-      border-radius: $radius;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background $transition, color $transition;
-
-      &:hover {
-        background: $primary;
-        color: #fff;
-      }
-    }
   }
 }

@@ -1,53 +1,106 @@
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
+/* ======================================================
+   TIPOGRAFÍA INTER GLOBAL PARA EL COMPONENTE
+====================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:host {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* ======================================================
+   CONTENEDOR PRINCIPAL
+====================================================== */
+.doctors-container {
+  margin: 2rem auto;
+  max-width: 1100px;
   background: #FFFFFF;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05); // sombra-suave
-  font-family: "Inter", sans-serif;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); // sombra-suave
+  font-family: 'Inter', sans-serif !important;
 }
 
-th, td {
-  padding: 12px;
-  border-bottom: 1px solid #E5E7EB; // borde-suave
-  font-size: 0.95rem;
-  color: #111827; // texto-principal
+.doctors-container h2 {
+  color: #111827;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
 }
 
-th {
-  background: #EFF6FF; // secundario-fondo
-  text-align: left;
-  font-weight: 600;
-  color: #374151; // texto-secundario
-}
-
-tr:hover td {
-  background: #F9FAFB;
-  transition: 0.25s ease-in-out;
-}
-
-/* ------------------------------
-   ACCIONES SUPERIORES
------------------------------- */
-.top-actions {
-  margin-bottom: 12px;
-}
-
-.btn-refresh {
+/* ======================================================
+   BOTÓN RECARGAR
+====================================================== */
+.reload-btn {
   background: #2563EB; // primario
   color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 14px;
-  font-size: 0.9rem;
+  padding: 10px 16px;
+  font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
+  margin-bottom: 1rem;
   transition: background 0.2s ease-in-out, transform 0.1s ease;
+  font-family: 'Inter', sans-serif !important;
 
   &:hover {
     background: #1D4ED8; // hover
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+/* ======================================================
+   TABLA ESTILO MEDIAPP
+====================================================== */
+.doctors-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  font-family: 'Inter', sans-serif !important;
+}
+
+.doctors-table th,
+.doctors-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #E5E7EB;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+.doctors-table th {
+  background: #EFF6FF;
+  font-weight: 600;
+  color: #374151;
+}
+
+.doctors-table tr:hover td {
+  background: #F9FAFB;
+  transition: 0.25s ease-in-out;
+}
+
+/* ======================================================
+   BOTÓN ELIMINAR
+====================================================== */
+.delete-btn {
+  background: transparent;
+  color: #e11d48; // rojo moderno
+  border: 1px solid #e11d48;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif !important;
+
+  &:hover {
+    background: #fee2e2;
   }
 
   &:active {
@@ -55,79 +108,45 @@ tr:hover td {
   }
 }
 
-/* ------------------------------
-   BOTONES DE ACCIÓN EN TABLA
------------------------------- */
-
-.btn-delete {
-  color: #e11d48; // rojo-mediapp
-  cursor: pointer;
-  font-weight: 500;
-
-  &:hover { text-decoration: underline; }
-}
-
-.btn-verificar {
-  color: #16a34a; // verde MediApp moderno
-  cursor: pointer;
-  margin-right: 8px;
-  font-weight: 500;
-
-  &:hover { text-decoration: underline; }
-}
-
-.btn-pendiente {
-  color: #d97706; // naranja MediApp
-  cursor: pointer;
-  margin-right: 8px;
-  font-weight: 500;
-
-  &:hover { text-decoration: underline; }
-}
-
-/* ------------------------------
-   BADGES (Etiquetas de estado)
------------------------------- */
-
-.badge {
-  padding: 4px 10px;
-  border-radius: 8px;
+/* ======================================================
+   MENSAJES
+====================================================== */
+.error {
+  color: #b91c1c;
   font-weight: 600;
-  font-size: 0.75rem;
-  display: inline-block;
+  margin-bottom: 1rem;
 }
 
-.badge.verificado {
-  background: #DCFCE7;
-  color: #15803D; // verde oscuro MediApp
-}
-
-.badge.pendiente {
-  background: #FEF3C7;
-  color: #B45309; // naranja oscuro MediApp
-}
-
-/* ------------------------------
-   LOADERS, EMPTY, MENSAJES
------------------------------- */
-
-.loader {
-  margin: 20px 0;
-  font-size: 1rem;
-  color: #374151; // texto-secundario
+.empty-message {
   text-align: center;
-}
-
-.empty {
-  margin-top: 15px;
-  color: #6B7280; // gris suave MediApp
-  text-align: center;
+  margin-top: 1.5rem;
+  color: #6B7280;
   font-size: 0.95rem;
 }
 
-.message {
-  margin-top: 10px;
-  font-weight: 600;
-  color: #111827;
+.loading {
+  color: #374151;
   text-align: center;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 768px) {
+  .doctors-container {
+    padding: 1rem;
+  }
+
+  .reload-btn {
+    width: 100%;
+  }
+
+  .doctors-table {
+    font-size: 0.85rem;
+  }
+
+  .doctors-table th,
+  .doctors-table td {
+    padding: 10px 12px;
+  }
 }

@@ -3,7 +3,7 @@
 
     <!-- Marca -->
     <div class="navbar__brand">
-      <a [routerLink]="authService.isAuthenticated() ? '/dashboard/home' : '/landing/home'" class="navbar__logo-link">
+      <a [routerLink]="authService.isAuthenticated() ? '/landing/home' : '/landing/home'" class="navbar__logo-link">
         <span class="navbar__logo">❤️</span>
         <span class="navbar__title">MediApp</span>
       </a>

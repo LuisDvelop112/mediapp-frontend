@@ -35,7 +35,7 @@
   <!-- ACCIONES RÁPIDAS -->
   <div class="quick-actions">
     <button class="btn-primary" routerLink="/appointment/create">
-  ➕ Agendar Nueva Cita
+      ➕ Agendar Nueva Cita
     </button>
   </div>
 
@@ -57,7 +57,7 @@
         <div class="info">
           <h4>Dr. {{ cita.medico?.nombre }} {{ cita.medico?.apellido }}</h4>
           <p>{{ cita.medico?.especialidad?.nombre }}</p>
-          <p class="date">📅 {{ cita.fecha }} — {{ cita.hora }}</p>
+          <p class="date">📅 {{ cita.fechaCita }} — {{ cita.horaCita }}</p>
         </div>
 
         <span 
@@ -90,17 +90,6 @@
       </div>
 
       <button class="btn-outline" routerLink="/profile/edit">✏️ Editar Perfil</button>
-    </div>
-
-    <!-- NOTIFICACIONES -->
-    <div class="notifications-box">
-      <h3>Notificaciones 🔔</h3>
-
-      <div *ngFor="let notif of notificaciones" class="notification">
-        <span class="dot blue"></span>
-        {{ notif.detalle || 'Nueva actualización en tus citas' }}
-      </div>
-
     </div>
 
   </div>

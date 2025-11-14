@@ -49,6 +49,7 @@ export class AuthService {
       localStorage.setItem('user_email', res.email);
       localStorage.setItem('user_fotoPerfil', res.fotoPerfil || '');
       localStorage.setItem('user_role', res.tipoUsuario);
+      localStorage.setItem('contrasenia', res.contraseña);
 
       return true;
     }),

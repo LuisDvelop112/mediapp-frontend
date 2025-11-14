@@ -1,56 +1,65 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { AuthService } from './auth.service'; // 👈 importa el servicio de autenticación
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
 
-  private apiCitas = 'https://backendmedia-app-production.up.railway.app/api/citas';
+  private API_URL = 'https://backendmedia-app-production.up.railway.app/api/citas';
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private http: HttpClient
+  ) {}
 
-  // ✅ obtener id del usuario logueado
+  // 🔵 Obtener ID real del paciente desde AuthService/localStorage
   private getIdPaciente(): number {
-    console.log('Obteniendo ID del usuario logueado desde AuthService', this.authService.getUserId());
-    return this.authService.getUserId()!;
+    const id = this.authService.getUserId();
+    if (!id) {
+      console.error("❌ No se encontró user_id en localStorage");
+      return 0;
+    }
+    return id;
   }
 
-  // ✅ Próximas citas del paciente
+  // 🔵 PROXIMAS CITAS
   getProximasCitas(): Observable<any[]> {
-    const idPaciente = this.getIdPaciente();
-    return this.http.get<any[]>(`${this.apiCitas}/paciente/${idPaciente}/proximas`);
+    const id = this.getIdPaciente();
+    return this.http.get<any[]>(`${this.API_URL}/paciente/${id}/proximas`);
   }
 
-  // ✅ Citas completadas
+  // 🔵 CANTIDAD DE CITAS COMPLETADAS
   getCitasCompletadas(): Observable<number> {
-    const idPaciente = this.getIdPaciente();
-    return this.http.get<number>(`${this.apiCitas}/contar/paciente/${idPaciente}/estado/COMPLETADA`);
+    const id = this.getIdPaciente();
+    return this.http.get<number>(`${this.API_URL}/contar/paciente/${id}/estado/COMPLETADA`);
   }
 
-  // ✅ Todas las citas del paciente
+  // 🔵 TODAS LAS CITAS DEl PACIENTE
   getTodasCitas(): Observable<any[]> {
-    const idPaciente = this.getIdPaciente();
-    return this.http.get<any[]>(`${this.apiCitas}/paciente/${idPaciente}`);
+    const id = this.getIdPaciente();
+    return this.http.get<any[]>(`${this.API_URL}/paciente/${id}`);
   }
 
-  // ✅ Obtener número de profesionales distintos
+  // 🔵 TOTAL DE MÉDICOS DISTINTOS
   getTotalProfesionales(): Observable<number> {
-    const idPaciente = this.getIdPaciente();
-    return this.http.get<any[]>(`${this.apiCitas}/paciente/${idPaciente}`)
-      .pipe(
-        map(citas => {
-          const medicos = new Set(citas.map(c => c.medico?.id));
-          return medicos.size;
-        })
-      );
+    const id = this.getIdPaciente();
+    return this.http.get<any[]>(`${this.API_URL}/paciente/${id}`).pipe(
+      map(citas => {
+        const medicos = new Set(
+          citas.map(c => c.medico?.idMedico)
+        );
+        return medicos.size;
+      })
+    );
   }
 
-  // ✅ Notificaciones: citas confirmadas
+  // 🔵 NOTIFICACIONES = citas en estado PROGRAMADA
   getNotificaciones(): Observable<any[]> {
-    const idPaciente = this.getIdPaciente();
-    return this.http.get<any[]>(`${this.apiCitas}/paciente/${idPaciente}/estado/CONFIRMADA`);
+    const id = this.getIdPaciente();
+    return this.http.get<any[]>(`${this.API_URL}/paciente/${id}/estado/PROGRAMADA`);
   }
+
 }
