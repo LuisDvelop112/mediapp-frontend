@@ -13,7 +13,27 @@ import { EditarPerfilService, Paciente } from '../../core/services/editarperfil.
 })
 export class EditProfile implements OnInit {
 
-  formData: Partial<Paciente> = {};
+  formData: Paciente = {
+    idPaciente: 0,
+    usuario: {
+      idUsuario: 0,
+      nombre: '',
+      apellido: '',
+      email: '',
+      contrasena: '',
+      telefono: '',
+      direccion: '',
+      fotoPerfil: ''
+    },
+    numeroIdentificacion: '',
+    tipoSangre: '',
+    contactoEmergencia: '',
+    telefonoEmergencia: '',
+    alergias: '',
+    enfermedadesCronicas: '',
+    medicamentosActuales: ''
+  };
+
   userId = localStorage.getItem('user_id');
   pacienteId: number | null = null;
 
@@ -33,7 +53,7 @@ export class EditProfile implements OnInit {
       .subscribe({
         next: (paciente) => {
           this.pacienteId = paciente.idPaciente;
-          this.formData = { ...paciente };
+          this.formData = paciente;
         },
         error: (err: any) => {
           console.error('Error cargando paciente:', err);
@@ -41,10 +61,6 @@ export class EditProfile implements OnInit {
           this.router.navigate(['/dashboard/home']);
         }
       });
-  }
-
-  handleInputChange(field: string, value: string) {
-    (this.formData as any)[field] = value;
   }
 
   handleSave() {
