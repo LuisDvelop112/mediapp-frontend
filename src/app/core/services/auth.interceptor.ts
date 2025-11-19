@@ -1,3 +1,7 @@
+//Su función es interceptar cada petición HTTP que sale desde la aplicación y, 
+//si existe un token, agregarle el header Authorization con el Bearer Token.
+
+
 import { Injectable } from '@angular/core';
 import {
   HttpEvent,
