@@ -1,3 +1,6 @@
+//Evita que usuarios no logueados entren a ciertas páginas.
+//Si no está autenticado, lo manda automáticamente al login.
+
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
