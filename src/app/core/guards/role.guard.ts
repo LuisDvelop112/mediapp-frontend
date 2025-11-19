@@ -1,3 +1,7 @@
+// Protege rutas según el rol del usuario (admin, user, etc.).
+// Solo deja entrar si su rol coincide con los roles permitidos.
+
+
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
