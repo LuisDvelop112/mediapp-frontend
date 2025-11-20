@@ -29,7 +29,7 @@ export interface Doctor {
   ciudad?: string;
   especialidad?: string | { idEspecialidad: number; nombreEspecialidad?: string };
 }
-
+//le dice a Angular que esa clase puede ser inyectada como un servicio dentro de otros componentes, servicios o guardias.
 @Injectable({
   providedIn: 'root'
 })
