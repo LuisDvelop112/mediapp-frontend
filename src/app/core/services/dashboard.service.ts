@@ -15,7 +15,7 @@ export class DashboardService {
     private http: HttpClient
   ) {}
 
-  // 🔵 Obtener ID real del paciente desde AuthService/localStorage
+  //  Obtener ID real del paciente desde AuthService/localStorage
   private getIdPaciente(): number {
     const id = this.authService.getUserId();
     if (!id) {
@@ -25,25 +25,25 @@ export class DashboardService {
     return id;
   }
 
-  // 🔵 PROXIMAS CITAS
+  //  PROXIMAS CITAS
   getProximasCitas(): Observable<any[]> {
     const id = this.getIdPaciente();
     return this.http.get<any[]>(`${this.API_URL}/paciente/${id}/proximas`);
   }
 
-  // 🔵 CANTIDAD DE CITAS COMPLETADAS
+  //  CANTIDAD DE CITAS COMPLETADAS
   getCitasCompletadas(): Observable<number> {
     const id = this.getIdPaciente();
     return this.http.get<number>(`${this.API_URL}/contar/paciente/${id}/estado/COMPLETADA`);
   }
 
-  // 🔵 TODAS LAS CITAS DEl PACIENTE
+  //  TODAS LAS CITAS DEl PACIENTE
   getTodasCitas(): Observable<any[]> {
     const id = this.getIdPaciente();
     return this.http.get<any[]>(`${this.API_URL}/paciente/${id}`);
   }
 
-  // 🔵 TOTAL DE MÉDICOS DISTINTOS
+  //  TOTAL DE MÉDICOS DISTINTOS
   getTotalProfesionales(): Observable<number> {
     const id = this.getIdPaciente();
     return this.http.get<any[]>(`${this.API_URL}/paciente/${id}`).pipe(
@@ -56,7 +56,7 @@ export class DashboardService {
     );
   }
 
-  // 🔵 NOTIFICACIONES = citas en estado PROGRAMADA
+  //  NOTIFICACIONES = citas en estado PROGRAMADA
   getNotificaciones(): Observable<any[]> {
     const id = this.getIdPaciente();
     return this.http.get<any[]>(`${this.API_URL}/paciente/${id}/estado/PROGRAMADA`);
