@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // ---------------------
-// TIPOS
+// TIPOS 
 // ---------------------
 export type Usuario = {
   idUsuario: number;
@@ -28,6 +28,8 @@ export class EditarPerfilService {
   private apiUsuarios = 'https://backendmedia-app-production.up.railway.app/api/usuarios';
 
   constructor(private http: HttpClient) {}
+
+  //Obtiene usuario por ID
 
   obtenerUsuario(idUsuario: number): Observable<Usuario> {
     return this.http.get<Usuario>(`${this.apiUsuarios}/${idUsuario}`);
